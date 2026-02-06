@@ -1,3 +1,13 @@
-export const Header = () => {
-  return <div>Header Section</div>;
+export const Header = () =>
+{
+  return (
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 flex justify-center items-center z-50">
+     <nav className="flex gap-1 p-1 bg-white/5 backdrop-blur-md border border-white/15 rounded-full">
+      <a href="#" className="nav-item " >Home</a>
+      <a href="#" className="nav-item" >Projects</a>
+      <a href="#" className="nav-item" >About</a>
+      <a href="#" className="nav-item bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900" >Contact</a>
+      </nav>
+    </div>
+  )
 };

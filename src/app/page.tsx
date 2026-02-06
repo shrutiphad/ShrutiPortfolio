@@ -1,11 +1,13 @@
-export default function Home() {
+import { Header } from "@/sections/Header";
+import "./globals.css";
+import { HeroSection } from "@/sections/Hero";
+
+export default function Home()
+{
   return (
     <div>
-      <h1>Home page</h1>
-      <h1 className="text-4xl text-red-500 bg-black p-4">
-  Tailwind Working
-</h1>
-
+      <Header />
+      <HeroSection />
     </div>
   );
 }
