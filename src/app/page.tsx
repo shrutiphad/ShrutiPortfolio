@@ -1,13 +1,24 @@
-import { Header } from "@/sections/Header";
-import "./globals.css";
-import { HeroSection } from "@/sections/Hero";
 
-export default function Home()
-{
+import {Header }from '@/sections/Header';
+import {HeroSection} from '@/sections/Hero'; 
+import{ ProjectsSection} from '@/sections/Projects'; 
+import {TapeSection} from '@/sections/Tape';
+import {TestimonialsSection }from '@/sections/Testimonials'; 
+import {AboutSection }from '@/sections/About';
+import {ContactSection} from '@/sections/Contact';
+import{ Footer }from '@/sections/Footer';
+
+export default function HomePage() {
   return (
-    <div>
-      <Header />
+    <div className="min-h-screen bg-black text-white antialiased"> 
+      <Header/>
       <HeroSection />
+       <ProjectsSection />
+      <TapeSection />
+      <TestimonialsSection className="mt-16 lg:mt-20 " />
+      <AboutSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 }
