@@ -13,11 +13,10 @@ export const HeroSection = () =>
         backgroundImage:`url(${grainImage.src})`
         }}>
       </div>
-      
-      <div className="absolute inset-0 size-[720px] border-2 top-1/2 left-1/2 
-   -translate-x-1/2 -translate-y-1/2 rounded-full border-pink-300/5 
-    shadow-[inset_0_0_80px_rgba(236,72,253,0.3)]"> </div>
-      
+      <div className="size-[590px] hero-ring"> </div>
+      <div className="size-[750px] hero-ring"> </div>
+      <div className="size-[910px] hero-ring"> </div>
+      <div className="size-[1050px] hero-ring"> </div>
       <div className='container -mt-17 -mb-1'>
       <div className ="flex flex-col items-center -mt-20">
           <Image
@@ -36,14 +35,14 @@ export const HeroSection = () =>
       </div>
         
           <div className='max-w-lg mx-auto'>
-        <h1 className='font-serif text-3xl md-text-5xl text-center mt-8 tracking-wider'>
-            Building websites <p></p>and 
+        <h1 className='font-sans text-3xl md-text-7xl bold text-center mt-5 tracking-wider'>
+            Building websites and 
           <p></p>  Exploring LLMs</h1>    
         <p className='mt-4 text-center text-white/60 md:text-lg'>
         I’m Shruti! an Aspiring Software & AI/ML Engineer,also who is proficient and excellent with words, while I convey tech to a non-tech person.
           </p>
           </div>
-        <div className='flex flex-col md:flex-row justify-center items-center gap-4 mt-10'>
+        <div className='flex flex-col md:flex-row justify-center items-center gap-4 mt-8'>
         
          <button className='inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl  hover:scale-105 transition'>
           <span className='semi-bold'>Glance My Work </span>
