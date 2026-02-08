@@ -29,4 +29,10 @@
         .animate-tilt {
           animation: wiggle-tilt 3s ease-in-out infinite;
         }
+
+        @layer utilities{
+          .container {
+                @apply lg:max-w-5xl;
+          }
+        }
 }

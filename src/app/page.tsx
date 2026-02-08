@@ -15,7 +15,7 @@ export default function HomePage() {
       <HeroSection />
        <ProjectsSection />
       <TapeSection />
-      <TestimonialsSection className="mt-16 lg:mt-20 " />
+      <TestimonialsSection/>
       <AboutSection />
       <ContactSection />
       <Footer />
