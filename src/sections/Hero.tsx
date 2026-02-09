@@ -68,7 +68,10 @@ export const HeroSection = () =>
       </div>
         
           <div className='max-w-lg mx-auto'>
-        <h1 className='font-sans text-3xl md-text-7xl bold text-center mt-5 tracking-wider'>
+          <h1 className='font-sans text-3xl md-text-7xl bold text-center mt-5 tracking-wider
+        "uppercase font-semibold  bg-gradient-to-r 
+        from-pink-300 to-purple-400 
+        text-transparent bg-clip-text text-center"'>
             Building websites and 
           <p></p>  Exploring LLMs</h1>    
         <p className='mt-4 text-center text-white/60 md:text-lg'>
