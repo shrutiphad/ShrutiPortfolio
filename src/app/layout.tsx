@@ -8,8 +8,8 @@ const calistoga = Calistoga({ subsets: ["latin"], variable: "--font-serif", weig
 
 export const metadata: Metadata = {
   title: "Shruti's Portfolio",
-  description: "Created with the help of Frontend Tribe",
-};
+  description: "Created with Passion",
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -3,17 +3,19 @@ import { ST } from "next/dist/shared/lib/utils";
 
 const words = [
   "Interactive",
+  "Responsive",
   "Secure",
   "Usable",
   "Scalable",
   "Reliable",
+  "User-Friendly",
   "Maintainable",
 ]
 export const TapeSection = () =>
 {
   return (
-    <div className="py-16 lg:py-24" >
-     <div className="bg-gradient-to-r from-pink-300 to-purple-400 overflow-x-clip -rotate-3 -mx-1  ">
+    <div className="py-16 lg:py-24 overflow-x-clip " >
+     <div className="bg-gradient-to-r from-pink-300/70 to-purple-400/70 -rotate-3 -mx-1  ">
      <div className="flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
       <div className="flex flex-none gap-4 py-3">
       {words.map((words) => (
