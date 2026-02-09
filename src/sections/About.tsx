@@ -1,5 +1,6 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
+import StarIcon from "@/assets/icons/star.svg"
 
 export const AboutSection = () => {
   return (
@@ -7,11 +8,14 @@ export const AboutSection = () => {
       <SectionHeader
         eyebrow="About Me"
         title="A Glimpse Into My World"
-        description="Currently learning and leveling up."
+        description=""
       />
       <div>
         <Card>
-
+          <div>
+            <StarIcon />
+            
+          </div>
         </Card>
       </div>
 
