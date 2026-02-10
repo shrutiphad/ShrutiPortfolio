@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 import memojiImage from '@/assets/images/shruticodes.png';
 import Image from 'next/image';
 import  ArrowDown from '@/assets/icons/arrow-down.svg'
