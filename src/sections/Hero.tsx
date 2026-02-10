@@ -75,7 +75,7 @@ export const HeroSection = () =>
             Building websites and 
           <p></p>  Exploring LLMs</h1>    
         <p className='mt-4 text-center text-white/60 md:text-lg'>
-        I’m Shruti! an Aspiring Software & AI/ML Engineer,also who is proficient and excellent with words, while I convey tech to a non-tech person.
+        I am Shruti! an Aspiring Software & AI/ML Engineer,also who is proficient and excellent with words, while I convey tech to a non-tech person.
           </p>
           </div>
         <div className='flex flex-col md:flex-row justify-center items-center gap-4 mt-8'>
