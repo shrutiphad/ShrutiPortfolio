@@ -1,6 +1,6 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
-import StarIcon from "@/assets/icons/star.svg"
+import StarIcon from "@/assets/icons/star.svg";
 import dockerImage from "@/assets/images/docker img.png";
 import Image from "next/image";
 import CssIcon from "@/assets/icons/css3.svg";
@@ -18,7 +18,6 @@ import JavaScriptIcon from "@/assets/icons/javascript.svg";
 import PythonIcon from "@/assets/icons/python.svg";
 import { TechIcon } from "@/components/TechIcon";
 
-
 const toolItems = [
   { title: "JavaScript", iconType: JavaScriptIcon },
   { title: "Python", iconType: PythonIcon },
@@ -35,74 +34,84 @@ const toolItems = [
   { title: "Linux", iconType: LinuxIcon },
 ];
 
+const orbitPositions = [
+  "top-[10%] left-[8%]",
+  "top-[15%] right-[10%]",
+  "top-[35%] left-[3%]",
+  "top-[35%] right-[2%]",
+  "top-[58%] left-[12%]",
+  "top-[58%] right-[10%]",
+  "bottom-[14%] left-[20%]",
+  "bottom-[14%] right-[22%]",
+  "top-[24%] left-[28%]",
+  "top-[24%] right-[30%]",
+  "bottom-[25%] left-[34%]",
+  "bottom-[25%] right-[36%]",
+  "top-[72%] left-[48%]",
+];
 
 export const AboutSection = () => {
   return (
-  <div className="pb-96">
+    <section id="about" className="pb-24">
       <SectionHeader
         eyebrow="About Me"
         title="A Glimpse Into My World"
         description="CREATIVE-CONFIDENT-COMPETENT"
       />
-      <div>
 
-        <Card>
-          <div>
-            <StarIcon />
-            <h3>System Design</h3>
-            <p>Currently learning and leveling up in</p>
+      <div className="container mt-12 grid gap-6 md:grid-cols-2">
+        <Card className="p-8">
+          <div className="flex items-center gap-3 text-pink-300">
+            <StarIcon className="size-5" />
+            <h3 className="text-2xl font-semibold">System Design</h3>
+          </div>
+          <p className="mt-4 text-white/70">Currently learning and leveling up in Docker + architecture fundamentals.</p>
+          <Image src={dockerImage} alt="Docker" className="mt-6 w-full rounded-2xl" />
+        </Card>
+
+        <Card className="relative overflow-hidden bg-gradient-to-br from-pink-600/30 via-pink-500/20 to-purple-500/30 p-8 md:row-span-2 min-h-[480px]">
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 text-pink-200">
+              <StarIcon className="size-5" />
+              <h3 className="text-2xl font-semibold">Tech Stack</h3>
             </div>
-            <Image src={dockerImage} alt ="docker" />
-        </Card>
+            <p className="mt-4 max-w-sm text-pink-100/90">
+              One pink power-card with everything I use to build and ship products.
+            </p>
+          </div>
 
-        <Card>
-          <div>
-            <StarIcon />
-            <h3>My ToolBox</h3>
-            <p>Currently learning and leveling up in</p>
+          {toolItems.map((item, index) => (
+            <div
+              key={item.title}
+              className={`absolute ${orbitPositions[index]} flex items-center gap-2 rounded-full border border-pink-200/30 bg-pink-950/55 px-3 py-2 text-sm text-pink-100 backdrop-blur-sm animate-float`}
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <TechIcon component={item.iconType} />
+              <span>{item.title}</span>
             </div>
-          <div>
-            {toolItems.map(item => (
-              <div key={item.title}>
-                <TechIcon component={item.iconType} />
-                <span>{item.title}</span>
-                </div>
-            ))}
-           </div>
+          ))}
         </Card>
 
-        <Card>
-          <div>
-            <StarIcon />
-            <h3>Beyond the Code</h3>
-            <p>Articulate with : Pitching, Hosting & Debating</p>
-            <a
-  href="https://www.linkedin.com/feed/update/urn:li:activity:7321824192943857664/"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <button
-    className="group flex items-center gap-2 px-6 py-3 rounded-xl 
-    bg-[#0A66C2] text-white font-semibold tracking-wide
-    hover:bg-[#004182] transition-all duration-300
-    hover:scale-105 active:scale-95 shadow-lg"
-  >
-    <span>LinkedIn</span>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-5 h-5 group-hover:translate-x-1 transition"
-    >
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.266 2.37 4.266 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.553V9h3.566v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0z"/>
-    </svg>
-  </button>
-</a>
-</div>
-          
+        <Card className="p-8">
+          <div className="flex items-center gap-3 text-pink-300">
+            <StarIcon className="size-5" />
+            <h3 className="text-2xl font-semibold">Beyond the Code</h3>
+          </div>
+          <p className="mt-4 text-white/70">Articulate with pitching, hosting, and debating.</p>
+          <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7321824192943857664/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex"
+          >
+            <button
+              className="group flex items-center gap-2 rounded-xl bg-[#0A66C2] px-6 py-3 font-semibold tracking-wide text-white transition-all duration-300 hover:scale-105 hover:bg-[#004182] active:scale-95"
+            >
+              <span>LinkedIn</span>
+            </button>
+          </a>
         </Card>
-
       </div>
-    </div>
-  )  
+    </section>
+  );
 };
