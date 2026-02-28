@@ -20,7 +20,9 @@ import JavaScriptIcon from "@/assets/icons/javascript.svg";
 import PythonIcon from "@/assets/icons/python.svg";
 import { TechIcon } from "@/components/TechIcon";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
+const words = ["CREATIVE", "CONFIDENT", "COMPETENT"];
 const toolItems = [
   { title: "JavaScript", iconType: JavaScriptIcon },
   { title: "Python", iconType: PythonIcon },
@@ -59,13 +61,69 @@ export const AboutSection = () => {
     <section id="about" className="pb-24">
       <SectionHeader
         eyebrow="About Me"
-        title="A Glimpse Into My World"
-        description="CREATIVE • CONFIDENT • COMPETENT"
+        title="currently focusing on the upskilling qualities"
+        description={
+          <>
+            <span className="
+               block mt-2
+               text-xl md:text-2xl lg:text-3xl
+                tracking-wide
+               bg-gradient-to-r text-white
+               bg-clip-text text-transparent
+               drop-shadow-[0_0_6px_rgba(168,85,247,0.4)]
+               hover:drop-shadow-[0_0_18px_rgba(168,85,247,1)]
+               transition-all duration-300
+             ">
+              AI WON'T REPLACE
+            </span>
+          </>
+        }
       />
+      
+      <div className="flex justify-center items-center gap-6 mt-6">
+  {words.map((word, index) => (
+    <div key={word} className="flex items-center gap-6">
+      
+      <motion.span
+        initial={{ y: 0 }}
+        animate={{ y: [0, -30, 0] }}
+        transition={{
+          duration: 0.7,
+          repeat: Infinity,
+          repeatDelay: 1,
+          delay: index * 0.25,
+        }}
+        className="
+          text-2xl md:text-3xl lg:text-4xl
+          font-extrabold
+          bg-gradient-to-r from-pink-400/60 via-purple-500/60 to-pink-500/60
+          bg-clip-text text-transparent
+          tracking-wider
+          drop-shadow-[0_0_12px_rgba(236,72,153,0.9)]
+        "
+      >
+        {word}
+      </motion.span>
+
+      {index < words.length - 1 && (
+        <span className="
+          text-3xl md:text-4xl
+          font-bold
+          text-purple-400
+          drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]
+        ">
+          •
+        </span>
+      )}
+
+    </div>
+  ))}
+</div>
+   
 
       <div className="container mt-12 grid gap-8 md:grid-cols-2">
         
-        {/* System Design */}
+        
         <Card className="gradient-card">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />
@@ -85,7 +143,7 @@ export const AboutSection = () => {
           />
         </Card>
 
-        {/* Tech Stack */}
+       
         <Card className="gradient-card">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />
@@ -111,8 +169,9 @@ export const AboutSection = () => {
             ))}
           </div>
         </Card>
+        
 
-        {/* Beyond Code */}
+       
         <Card className="gradient-card md:col-span-2">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />

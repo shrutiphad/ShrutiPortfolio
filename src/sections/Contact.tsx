@@ -1,6 +1,6 @@
 import grainImage from "@/assets/images/grain.jpg";
 
-const CONTACT_EMAIL = "shrutiphad.dev@gmail.com";
+const CONTACT_EMAIL = "shrutiphadwork@gmail.com";
 
 export const ContactSection = () => {
   return (
@@ -14,7 +14,7 @@ export const ContactSection = () => {
             style={{ backgroundImage: `url(${grainImage.src})` }}
           />
 
-          <h3 className="text-center text-3xl font-semibold text-white">
+          <h3 className="text-center text-3xl font-semibold text-white/70">
             Let’s build something meaningful
           </h3>
 
@@ -29,7 +29,7 @@ export const ContactSection = () => {
               name="name"
               required
               placeholder="Your name"
-              className="rounded-xl px-4 py-3 bg-white/10 text-white placeholder-white/50 outline-none focus:ring-2 focus:ring-pink-400"
+              className="rounded-xl px-4 py-3 bg-white/10 text-white placeholder-white/50 outline-none focus:ring-2 bg-gradient-to-br  from-pink-400/10 via-purple-500/35 to-pink-500/10  "
             />
 
             <input
@@ -37,7 +37,8 @@ export const ContactSection = () => {
               type="email"
               required
               placeholder="Your email"
-              className="rounded-xl px-4 py-3 bg-white/10 text-white placeholder-white/50 outline-none focus:ring-2 focus:ring-purple-400"
+              className="rounded-xl px-4 py-3 bg-white/10 text-white placeholder-white/50 outline-none focus:ring-2  
+              bg-gradient-to-br from-pink-400/10 via-purple-500/35 to-pink-500/10  "
             />
 
             <textarea
@@ -45,13 +46,13 @@ export const ContactSection = () => {
               required
               rows={5}
               placeholder="Your message"
-              className="rounded-xl px-4 py-3 bg-white/10 text-white placeholder-white/50 outline-none focus:ring-2 focus:ring-pink-400"
+              className="rounded-xl px-4 py-3 bg-white/10 text-white placeholder-white/50 outline-none focus:ring-2 bg-gradient-to-br from-pink-400/10 via-purple-500/35 to-pink-500/10 "
             />
 
             <button
               type="submit"
-              className="rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 
-              px-6 py-3 font-semibold text-white hover:scale-105 transition"
+              className="rounded-xl  bg-gradient-to-br from-pink-400/40 via-purple-500/50 to-pink-500/40 
+              px-9 py-4 font-semibold text-white/70 hover:scale-105 transition"
             >
               Send Message
             </button>
