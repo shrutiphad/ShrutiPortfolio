@@ -43,7 +43,7 @@
       animation: tape-scroll 20s linear infinite;
     }
 
-    /* 🔥 NEW GLOBAL CARD STYLE */
+
     .gradient-card {
      
             @apply rounded-3xl p-8 bg-gradient-to-br from-pink-500/15 via-purple-500/15 to-fuchsia-500/15 border border-pink-400/30 backdrop-blur-xl;
