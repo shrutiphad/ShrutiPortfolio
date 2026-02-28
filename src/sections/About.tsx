@@ -1,7 +1,9 @@
+"use client";
+
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
-import StarIcon from "@/assets/icons/star.svg"
-import dockerImage from "@/assets/images/docker img.png";
+import StarIcon from "@/assets/icons/star.svg";
+import dockerImage from "@/assets/images/docker.png";
 import Image from "next/image";
 import CssIcon from "@/assets/icons/css3.svg";
 import ExpressIcon from "@/assets/icons/express.svg";
@@ -17,7 +19,7 @@ import TypeScriptIcon from "@/assets/icons/typescript.svg";
 import JavaScriptIcon from "@/assets/icons/javascript.svg";
 import PythonIcon from "@/assets/icons/python.svg";
 import { TechIcon } from "@/components/TechIcon";
-
+import { useEffect, useState } from "react";
 
 const toolItems = [
   { title: "JavaScript", iconType: JavaScriptIcon },
@@ -35,74 +37,104 @@ const toolItems = [
   { title: "Linux", iconType: LinuxIcon },
 ];
 
+const rotatingWords = [
+  "PRESENTING",
+  "PITCHING",
+  "PRODUCT THINKING",
+  "PUBLIC SPEAKING",
+  "DEBATING",
+];
 
 export const AboutSection = () => {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-  <div className="pb-96">
+    <section id="about" className="pb-24">
       <SectionHeader
         eyebrow="About Me"
         title="A Glimpse Into My World"
-        description="CREATIVE-CONFIDENT-COMPETENT"
+        description="CREATIVE • CONFIDENT • COMPETENT"
       />
-      <div>
 
-        <Card>
-          <div>
-            <StarIcon />
-            <h3>System Design</h3>
-            <p>Currently learning and leveling up in</p>
-            </div>
-            <Image src={dockerImage} alt ="docker" />
+      <div className="container mt-12 grid gap-8 md:grid-cols-2">
+        
+        {/* System Design */}
+        <Card className="gradient-card">
+          <div className="flex items-center gap-3 text-pink-300">
+            <StarIcon className="size-5" />
+            <h3 className="text-2xl font-semibold">System Design</h3>
+          </div>
+
+          <p className="mt-4 text-white/80">
+            Learning Docker and scalable architecture fundamentals.
+          </p>
+
+          <Image
+            src={dockerImage}
+            alt="Docker"
+            width={500}
+            height={300}
+            className="mt-6 rounded-2xl"
+          />
         </Card>
 
-        <Card>
-          <div>
-            <StarIcon />
-            <h3>My ToolBox</h3>
-            <p>Currently learning and leveling up in</p>
-            </div>
-          <div>
-            {toolItems.map(item => (
-              <div key={item.title}>
-                <TechIcon component={item.iconType} />
-                <span>{item.title}</span>
+        {/* Tech Stack */}
+        <Card className="gradient-card">
+          <div className="flex items-center gap-3 text-pink-300">
+            <StarIcon className="size-5" />
+            <h3 className="text-2xl font-semibold">Tech Stack</h3>
+          </div>
+
+          <div className="mt-6 grid grid-cols-3 sm:grid-cols-4 gap-4">
+            {toolItems.map((item) => (
+              <div
+                key={item.title}
+                className="flex flex-col items-center gap-2 
+                rounded-xl p-3
+                bg-gradient-to-br from-pink-500/20 to-purple-500/20
+                hover:scale-105 transition-all"
+              >
+                <div className="text-pink-200 size-8">
+                  <TechIcon component={item.iconType} />
                 </div>
+                <span className="text-xs font-semibold text-pink-100 text-center">
+                  {item.title}
+                </span>
+              </div>
             ))}
-           </div>
+          </div>
         </Card>
 
-        <Card>
-          <div>
-            <StarIcon />
-            <h3>Beyond the Code</h3>
-            <p>Articulate with : Pitching, Hosting & Debating</p>
-            <a
-  href="https://www.linkedin.com/feed/update/urn:li:activity:7321824192943857664/"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <button
-    className="group flex items-center gap-2 px-6 py-3 rounded-xl 
-    bg-[#0A66C2] text-white font-semibold tracking-wide
-    hover:bg-[#004182] transition-all duration-300
-    hover:scale-105 active:scale-95 shadow-lg"
-  >
-    <span>LinkedIn</span>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-5 h-5 group-hover:translate-x-1 transition"
-    >
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.266 2.37 4.266 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.553V9h3.566v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0z"/>
-    </svg>
-  </button>
-</a>
-</div>
-          
-        </Card>
+        {/* Beyond Code */}
+        <Card className="gradient-card md:col-span-2">
+          <div className="flex items-center gap-3 text-pink-300">
+            <StarIcon className="size-5" />
+            <h3 className="text-2xl font-semibold">Beyond the Code</h3>
+          </div>
 
+          <div className="mt-6 flex flex-wrap gap-3">
+            {rotatingWords.map((word, index) => (
+              <span
+                key={word}
+                className={`px-4 py-2 rounded-full font-bold text-sm transition-all ${
+                  index === currentWordIndex
+                    ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white scale-110"
+                    : "bg-white/10 text-white/50"
+                }`}
+              >
+                {word}
+              </span>
+            ))}
+          </div>
+        </Card>
       </div>
-    </div>
-  )  
+    </section>
+  );
 };

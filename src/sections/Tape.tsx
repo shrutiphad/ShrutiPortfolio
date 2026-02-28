@@ -1,5 +1,4 @@
-import StarIcon from "@/assets/icons/star.svg"
-import { ST } from "next/dist/shared/lib/utils";
+import StarIcon from "@/assets/icons/star.svg";
 
 const words = [
   "Interactive",
@@ -10,25 +9,25 @@ const words = [
   "Reliable",
   "User-Friendly",
   "Maintainable",
-]
-export const TapeSection = () =>
-{
+];
+
+export const TapeSection = () => {
   return (
-    <div className="py-16 lg:py-24 overflow-x-clip " >
-     <div className="bg-gradient-to-r from-pink-300/70 to-purple-400/70 -rotate-3 -mx-1  ">
-     <div className="flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-      <div className="flex flex-none gap-4 py-3">
-      {words.map((words) => (
-        <div key={words} className="inline-flex gap-4 items-center">
-          <span className="text-gray-900 uppercase font-extrabold text-sm">
-            {words}</span>
-          <StarIcon className="size-6 text-gray-900 -rotate-12" />
+    <div className="py-16 overflow-x-clip">
+      <div className="bg-gradient-to-r from-pink-500 to-purple-600 -rotate-3">
+        <div className="flex">
+          <div className="flex gap-6 py-4 animate-tape-scroll">
+            {[...words, ...words, ...words].map((word, i) => (
+              <div key={i} className="flex items-center gap-4">
+                <span className="uppercase font-bold text-white text-sm">
+                  {word}
+                </span>
+                <StarIcon className="size-5 text-white" />
+              </div>
+            ))}
+          </div>
         </div>
-         ))}
-       </div>
-      </div>  
-     </div>
+      </div>
     </div>
-    
-  )
+  );
 };

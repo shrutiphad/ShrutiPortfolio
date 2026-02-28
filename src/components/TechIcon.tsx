@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 
-export const TechIcon = ({component} : {component:React.ElementType}) =>
-{
-  const Component = component
+type Props = {
+  component: React.ElementType;
+};
+
+export const TechIcon = ({ component: Icon }: Props) => {
   return (
-    <Component/>
-  )
-}
+    <Icon className="w-8 h-8 text-pink-300" />
+  );
+};

@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-
 import memojiImage from '@/assets/images/shruticodes.png';
 import Image from 'next/image';
 import  ArrowDown from '@/assets/icons/arrow-down.svg'
@@ -8,6 +7,7 @@ import StarIcon from '@/assets/icons/star.svg'
 import { HeroOrbit } from '@/components/HeroOrbit';
 import SparkleIcon from '@/assets/icons/sparkle.svg'
 export const HeroSection = () =>
+
 {
   return(
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
