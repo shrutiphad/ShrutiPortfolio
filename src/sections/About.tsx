@@ -7,7 +7,6 @@ import dockerImage from "@/assets/images/docker.png";
 import Image from "next/image";
 import CssIcon from "@/assets/icons/css3.svg";
 import ExpressIcon from "@/assets/icons/express.svg";
-import GithubIcon from "@/assets/icons/github.svg";
 import HtmlIcon from "@/assets/icons/html5.svg";
 import LinuxIcon from "@/assets/icons/linux.svg";
 import MongoIcon from "@/assets/icons/mongodb.svg";
@@ -35,7 +34,6 @@ const toolItems = [
   { title: "PostgreSQL", iconType: PostgresIcon },
   { title: "HTML", iconType: HtmlIcon },
   { title: "CSS", iconType: CssIcon },
-  { title: "GitHub", iconType: GithubIcon },
   { title: "Linux", iconType: LinuxIcon },
 ];
 
@@ -44,8 +42,7 @@ const rotatingWords = [
   "PITCHING",
   "PRODUCT THINKING",
   "PUBLIC SPEAKING",
-  "DEBATING",
-];
+]
 
 export const AboutSection = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -66,10 +63,10 @@ export const AboutSection = () => {
           <>
             <span className="
                block mt-2
-               text-xl md:text-2xl lg:text-3xl
+               text-xl md:text-5xl lg:text-6xl
                 tracking-wide
                bg-gradient-to-r text-white
-               bg-clip-text text-transparent
+               bg-clip-text
                drop-shadow-[0_0_6px_rgba(168,85,247,0.4)]
                hover:drop-shadow-[0_0_18px_rgba(168,85,247,1)]
                transition-all duration-300
@@ -83,10 +80,10 @@ export const AboutSection = () => {
       <div className="flex justify-center items-center gap-6 mt-6">
   {words.map((word, index) => (
     <div key={word} className="flex items-center gap-6">
-      
+
       <motion.span
         initial={{ y: 0 }}
-        animate={{ y: [0, -30, 0] }}
+        animate={{ y: [0, -20, 0] }}
         transition={{
           duration: 0.7,
           repeat: Infinity,
@@ -95,27 +92,28 @@ export const AboutSection = () => {
         }}
         className="
           text-2xl md:text-3xl lg:text-4xl
-          font-extrabold
+          font-extrabold italic
           bg-gradient-to-r from-pink-400/60 via-purple-500/60 to-pink-500/60
           bg-clip-text text-transparent
           tracking-wider
-          drop-shadow-[0_0_12px_rgba(236,72,153,0.9)]
+          drop-shadow-[0_0_6px_rgba(236,72,153,0.6)]
         "
       >
         {word}
       </motion.span>
 
       {index < words.length - 1 && (
-        <span className="
-          text-3xl md:text-4xl
-          font-bold
-          text-purple-400
-          drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]
-        ">
+        <span
+          className="
+            text-3xl md:text-4xl
+            font-bold
+            text-purple-400
+            drop-shadow-[0_0_6px_rgba(168,85,247,0.6)]
+          "
+        >
           •
         </span>
       )}
-
     </div>
   ))}
 </div>
@@ -130,8 +128,8 @@ export const AboutSection = () => {
             <h3 className="text-2xl font-semibold">System Design</h3>
           </div>
 
-          <p className="mt-4 text-white/80">
-            Learning Docker and scalable architecture fundamentals.
+          <p className="mt-12 text-white/80">
+            Learning Docker, understanding CI/CD pipelines for infrastructure and scalable architecture fundamentals.
           </p>
 
           <Image
@@ -141,6 +139,7 @@ export const AboutSection = () => {
             height={300}
             className="mt-6 rounded-2xl"
           />
+          <p className="mt-12 text-xl text-purple-700/90 font-semibold">   &nbsp; &nbsp; &nbsp; Hosting & Deploying </p>
         </Card>
 
        
@@ -150,12 +149,12 @@ export const AboutSection = () => {
             <h3 className="text-2xl font-semibold">Tech Stack</h3>
           </div>
 
-          <div className="mt-6 grid grid-cols-3 sm:grid-cols-4 gap-4">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
             {toolItems.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col items-center gap-2 
-                rounded-xl p-3
+                className="flex flex-col items-center gap-0.05
+                rounded-xl px-4 py-4
                 bg-gradient-to-br from-pink-500/20 to-purple-500/20
                 hover:scale-105 transition-all"
               >
@@ -163,19 +162,21 @@ export const AboutSection = () => {
                   <TechIcon component={item.iconType} />
                 </div>
                 <span className="text-xs font-semibold text-pink-100 text-center">
+                  <br/>
                   {item.title}
                 </span>
               </div>
             ))}
           </div>
         </Card>
-        
 
-       
+
         <Card className="gradient-card md:col-span-2">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />
-            <h3 className="text-2xl font-semibold">Beyond the Code</h3>
+            <h3 className="text-2xl font-semibold">Beyond the Code
+            </h3>
+
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
@@ -191,6 +192,10 @@ export const AboutSection = () => {
                 {word}
               </span>
             ))}
+            
+           
+
+            
           </div>
         </Card>
       </div>

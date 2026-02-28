@@ -1,24 +1,36 @@
+"use client";
+import Image from "next/image";
 import grainImage from "@/assets/images/grain.jpg";
 import { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const Card = ({ className,children, }:PropsWithChildren<{ className?: string }>) => {
+export const Card = ({
+  className,
+  children,
+}: PropsWithChildren<{ className?: string }>) => {
   return (
     <div
       className={twMerge(
-        "bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:bg-purple-900 after:ring-8 after:ring-white/60 after:rounded-3xl p-6",
+        "relative rounded-3xl overflow-hidden p-6",
         className
       )}
     >
-      <div
-        className="absolute inset-0 -z-10 opacity-5"
-        style={{
-          backgroundImage: `url(${grainImage.src})`,
-        }}>
+      {/* Grain Background (Behind Everything) */}
+      <Image
+      src={grainImage}
+      alt=""
+      fill
+      className="object-cover opacity-5 -z-20"
+    />
+      
+
+      {/* Subtle Overlay Ring Effect (Behind Content) */}
+      <div className="absolute inset-0 -z-10 rounded-3xl ring-8 ring-white/10 pointer-events-none" />
+
+      {/* Actual Card Content */}
+      <div className="relative z-10">
+        {children}
       </div>
-      
-      {children}
-      
     </div>
   );
 };

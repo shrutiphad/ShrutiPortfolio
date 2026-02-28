@@ -25,33 +25,35 @@ export const HeroSection = () =>
       <div className="size-[1550px] hero-ring"> </div>
       
         <HeroOrbit size={800} rotation={-72}>
-        <StarIcon className="size-28 text-pink-300" />
+        <StarIcon className="size-28 text-pink-400/40" />
         </HeroOrbit>
         <HeroOrbit size={550} rotation={20}>
-        <StarIcon className="size-12 text-pink-300" />
+        <StarIcon className="size-12 text-pink-300/40" />
       </HeroOrbit>
       <HeroOrbit size={590} rotation={98}>
-        <StarIcon className="size-8 text-pink-300" />
+        <StarIcon className="size-8 text-purple-300/70" />
       </HeroOrbit>
       <HeroOrbit size={430} rotation={-15}>
-        <SparkleIcon className="size-8 text-pink-300/40" />
+        <SparkleIcon className="size-8 text-purple-300/40" />
       </HeroOrbit>
       <HeroOrbit size={440} rotation={79}>
-        <SparkleIcon className="size-5 text-pink-300/40" />
+        <SparkleIcon className="size-5 text-purple-300/40" />
       </HeroOrbit>
       <HeroOrbit size={530} rotation={178}>
         <SparkleIcon className="size-10 text-pink-300/40" />
       </HeroOrbit>
       <HeroOrbit size={710} rotation={144}>
-        <SparkleIcon className="size-10 text-pink-300/40" />
+        <SparkleIcon className="size-10 text-purple-300/40" />
       </HeroOrbit>
       <HeroOrbit size={880} rotation={95}>
-        <StarIcon className="size-28 text-pink-300" />
+        <StarIcon className="size-28 text-pink-300/50" />
       </HeroOrbit>
       <HeroOrbit size={520} rotation={-0}>
-        <StarIcon className="size-3 text-pink-300" />
+        <StarIcon className="size-3 text-pink-400/70" />
       </HeroOrbit>
-    </div>
+      </div>
+      
+      <section id="home">
       <div className='container -mt-17 -mb-1'>
       <div className ="flex flex-col items-center -mt-20">
           <Image
@@ -72,7 +74,7 @@ export const HeroSection = () =>
           <div className='max-w-lg mx-auto'>
           <h1 className='font-sans text-3xl md-text-7xl bold text-center mt-5 tracking-wider
         "uppercase font-semibold  bg-gradient-to-r 
-        from-pink-300 to-purple-400 
+        from-pink-400/80 to-purple-500/80 
         text-transparent bg-clip-text text-center"'>
             Building websites and 
           <p></p>  Exploring LLMs</h1>    
@@ -87,13 +89,14 @@ export const HeroSection = () =>
           <ArrowDown className="size-4"/>
             </button>
             
-          <button className='inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl'>
-           <span> 🤝 </span>
-           <span className='semi-bold'>Let us Collaborate </span>
+          <button className='inline-flex items-center gap-0.5 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl'>
+           <span> 🤝 </span> &nbsp;
+           <span><a href="#contact"></a>Let us Collaborate</span>
             </button>
     
           </div>
-       </div>
+        </div>
+        </section>
       </div>
      
     
