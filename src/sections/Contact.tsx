@@ -32,7 +32,7 @@ export const ContactSection = () => {
     />
  
           <h3 className="text-center text-3xl font-semibold text-white/70"> 
-            Let’s build something meaningful 
+          Let&apos;s build something meaningful
           </h3> 
     
               <form
