@@ -15,7 +15,7 @@ export const Card = ({
         className
       )}
     >
-      {/* Grain Background (Behind Everything) */}
+      
       <Image
       src={grainImage}
       alt=""
@@ -24,10 +24,9 @@ export const Card = ({
     />
       
 
-      {/* Subtle Overlay Ring Effect (Behind Content) */}
       <div className="absolute inset-0 -z-10 rounded-3xl ring-8 ring-white/10 pointer-events-none" />
 
-      {/* Actual Card Content */}
+      
       <div className="relative z-10">
         {children}
       </div>

@@ -40,27 +40,24 @@ export const ContactSection = () => {
       method="POST"
       className="mt-8 grid gap-4"
     >
-      {/* Disable captcha */}
+     
       <input type="hidden" name="_captcha" value="false" />
 
-      {/* Email subject */}
+     
       <input
         type="hidden"
         name="_subject"
         value="New Portfolio Message from Shruti's Website"
       />
 
-      {/* Reply directly to sender */}
       <input type="hidden" name="_replyto" />
 
-      {/* Optional: Redirect after submit */}
       <input
         type="hidden"
         name="_next"
         value="https://shruti-portfolio-rho.vercel.app/"
       />
 
-      {/* Honeypot spam protection */}
       <input type="text" name="_honey" style={{ display: "none" }} />
 
       <input
