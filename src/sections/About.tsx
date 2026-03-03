@@ -72,7 +72,7 @@ useEffect(() => {
         description={
           <>
             <span className="
-               block mt-2
+               block mt-9
                text-xl md:text-5xl lg:text-6xl
                 tracking-wide
                bg-gradient-to-r text-white
@@ -81,7 +81,7 @@ useEffect(() => {
                hover:drop-shadow-[0_0_18px_rgba(168,85,247,1)]
                transition-all duration-300
              ">
-              AI WON'T REPLACE
+              AI WON&apos;T REPLACE
             </span>
           </>
         }
