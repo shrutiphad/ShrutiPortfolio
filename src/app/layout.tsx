@@ -9,7 +9,12 @@ const calistoga = Calistoga({ subsets: ["latin"], variable: "--font-serif", weig
 export const metadata: Metadata = {
   title: "Shruti Portfolio",
   description: "Created with Passion",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  
 }
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

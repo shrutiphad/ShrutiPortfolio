@@ -8,8 +8,8 @@ import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg"
 import ArrowUpRightIcon from "@/assets/icons/arrow-down.svg"
 import grainImage from "@/assets/images/grain.jpg"
-import { motion } from "framer-motion";
-import { useState,useEffect } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 const portfolioProjects = [
   {
@@ -87,16 +87,30 @@ const portfolioProjects = [
 export const ProjectsSection = () =>
 { 
   const [mounted, setMounted] = useState(false);
-
+  const ref = useRef(null);
 useEffect(() => {
   setMounted(true);
 }, []);
 
-if (!mounted) return null;
+  //NEW ADDITION I DID
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+  });
+
+  if (!mounted) return null;
   return ( 
 
     
     <section id="projects" className="pb-16 lg:py-24"> 
+      
+    
       <div className="container"> 
         <div className="flex justify-center"> 
           <p className="uppercase font-semibold tracking-widest bg-gradient-to-r 
@@ -120,11 +134,29 @@ if (!mounted) return null;
           {portfolioProjects.map((project, i) => ( 
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03, rotate: 0.4 }}
+              initial={{ 
+              opacity: 0, 
+                x: i % 2 === 0 ? -150 : 150,
+                rotateY: i % 2 === 0 ? -20 : 20
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                x: 0,
+                rotateY: 0
+              }}
+              transition={{ 
+                duration: 0.9, 
+                type: "spring",
+                stiffness: 80
+              }}
+              viewport={{ once: false }}
+              whileHover={{ 
+                rotateY: 6,
+                scale: 1.05,
+                transition: { duration: 0.4 }
+              }}
+              style={{ perspective: 1200 }}
+
               className="relative bg-gray-800 rounded-3xl  
                 z-0 overflow-hidden 
 
@@ -165,10 +197,21 @@ if (!mounted) return null;
 
                   <ul className="flex flex-col gap-4 mt-4 md:mt-5"> 
                     {project.results.map((result, idx) => ( 
-                      <li key={idx} className="flex gap-2 text-sm md:text-base text-white/50"> 
-                        <CheckCircleIcon className="size-5 md:size-6"/> 
+
+
+  <motion.li
+    key={idx}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: idx * 0.15 }}
+    viewport={{ once: false }}
+    className="flex gap-2 text-sm md:text-base text-white/50"
+  >
+                        
+                        
+                        <CheckCircleIcon className="size-5 md:size-6" /> 
                         <span>{result.title}</span> 
-                      </li> 
+                        </motion.li>
                     ))} 
                   </ul> 
 
@@ -184,6 +227,13 @@ if (!mounted) return null;
                 </div> 
 
                 <div className="relative"> 
+                <motion.div
+                    initial={{ y: 40, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: false }}
+                    whileHover={{ y: -8 }}
+                  >
                   <Image 
                     src={project.image} 
                     alt={project.title} 
@@ -192,7 +242,8 @@ if (!mounted) return null;
                     className="mt-8 -mb-4 md:mb-0  
                       lg:mt-0 lg:absolute lg:h-full 
                       lg:w-auto lg:max-w-none rounded-xl" 
-                  /> 
+                    /> 
+                     </motion.div>
                 </div> 
               </div> 
             </motion.div> 
