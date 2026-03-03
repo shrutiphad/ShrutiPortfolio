@@ -11,7 +11,9 @@ const words = [
   "Maintainable",
 ];
 
-export const TapeSection = () => {
+export const TapeSection = () =>
+{
+  
   return (
     <div className="py-16 overflow-x-clip">
       <div className="bg-gradient-to-r from-pink-500/70 to-purple-600/70 -rotate-3">

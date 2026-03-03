@@ -9,6 +9,7 @@ import CheckCircleIcon from "@/assets/icons/check-circle.svg"
 import ArrowUpRightIcon from "@/assets/icons/arrow-down.svg"
 import grainImage from "@/assets/images/grain.jpg"
 import { motion } from "framer-motion";
+import { useState,useEffect } from "react";
 
 const portfolioProjects = [
   {
@@ -83,9 +84,18 @@ const portfolioProjects = [
 ];
 
 
+export const ProjectsSection = () =>
+{ 
+  const [mounted, setMounted] = useState(false);
 
-export const ProjectsSection = () => { 
+useEffect(() => {
+  setMounted(true);
+}, []);
+
+if (!mounted) return null;
   return ( 
+
+    
     <section id="projects" className="pb-16 lg:py-24"> 
       <div className="container"> 
         <div className="flex justify-center"> 

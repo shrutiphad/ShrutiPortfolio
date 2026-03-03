@@ -6,9 +6,11 @@ import grainImage from '@/assets/images/grain.jpg'
 import StarIcon from '@/assets/icons/star.svg'
 import { HeroOrbit } from '@/components/HeroOrbit';
 import SparkleIcon from '@/assets/icons/sparkle.svg'
+
 export const HeroSection = () =>
 
 {
+  
   return(
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div  className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
@@ -82,19 +84,29 @@ export const HeroSection = () =>
         I am Shruti! an Aspiring Software & AI/ML Engineer,also who is proficient and excellent with words, while I convey tech to a non-tech person.
           </p>
           </div>
-        <div className='flex flex-col md:flex-row justify-center items-center gap-4 mt-8'>
-        
-         <button className='inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl  hover:scale-105 transition'>
-          <span className='semi-bold'>Glance My Work </span>
-          <ArrowDown className="size-4"/>
-            </button>
+
+
+       <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-8">
+
+  <a
+    href="#projects"
+    className="inline-flex items-center justify-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:scale-105 transition"
+  >
+    <span className="font-semibold">Glance My Work</span>
+    <ArrowDown className="size-4" />
+  </a>
+
+  <a
+    href="#contact"
+    className="inline-flex items-center justify-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl hover:scale-105 transition"
+  >
+    <span>🤝</span>
+    <span>Let us Collaborate</span>
+  </a>
+
             
-          <button className='inline-flex items-center gap-0.5 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl'>
-           <span> 🤝 </span> &nbsp;
-           <span><a href="#contact"></a>Let us Collaborate</span>
-            </button>
-    
-          </div>
+</div>
+
         </div>
         </section>
       </div>

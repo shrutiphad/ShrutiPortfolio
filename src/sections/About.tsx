@@ -21,7 +21,9 @@ import { TechIcon } from "@/components/TechIcon";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+
 const words = ["CREATIVE", "CONFIDENT", "COMPETENT"];
+
 const toolItems = [
   { title: "JavaScript", iconType: JavaScriptIcon },
   { title: "Python", iconType: PythonIcon },
@@ -45,7 +47,13 @@ const rotatingWords = [
 ]
 
 export const AboutSection = () => {
+  const [mounted, setMounted] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+useEffect(() => {
+  setMounted(true);
+}, []);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,6 +62,8 @@ export const AboutSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  if (!mounted) return null;
+  
   return (
     <section id="about" className="pb-24">
       <SectionHeader
@@ -76,6 +86,7 @@ export const AboutSection = () => {
           </>
         }
       />
+
       
       <div className="flex justify-center items-center gap-6 mt-6">
   {words.map((word, index) => (
@@ -197,8 +208,13 @@ export const AboutSection = () => {
 
             
           </div>
+
         </Card>
       </div>
     </section>
   );
+
 };
+
+
+

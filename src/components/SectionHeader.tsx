@@ -18,16 +18,16 @@ description: React.ReactNode;
     </p> 
   </div> 
 
-  <h2 className="font-serif text-3xl md:text-3xl text-center mt-6"> 
+  <h2 className="font-sans text-2xl md:text-3xl text-center mt-6"> 
    {title}
   </h2> 
    
  
-      <p className="font-sans text-center md:text-lg lg:text-xl
-       text-pink-300/60 mt-4 max-w-xl mx-auto leading-relaxed">
+      <h1 className="font-sans text-2xl font-size-20xl md:text-6xl text-center 
+       text-pink-300/60 mt-2 max-w-xl mx-auto leading-relaxed">
   {description}
   <br/>  <br/>
-</p>
+</h1>
       
     </>
   )
