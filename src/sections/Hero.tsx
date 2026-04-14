@@ -138,13 +138,13 @@ export const HeroSection = () => {
             <StarIcon className="size-3 text-pink-400/70" />
           </motion.div>
         </HeroOrbit>
-        <HeroOrbit size={640} rotation={36}>
+        {/* <HeroOrbit size={640} rotation={36}>
           <motion.div
             animate={{ rotate: [45, 95, 45], scale: [1, 1.14, 1] }}
             transition={{ repeat: Infinity, duration: 4.5 }}
             className="size-4 rotate-45 rounded-sm border border-fuchsia-300/70 bg-fuchsia-300/20 shadow-[0_0_12px_rgba(217,70,239,0.55)]"
           />
-        </HeroOrbit>
+        </HeroOrbit> */}
         <HeroOrbit size={760} rotation={12}>
           <motion.div
             animate={{ rotate: [0, -360], scale: [1, 1.1, 1] }}
@@ -163,13 +163,13 @@ export const HeroSection = () => {
             <StarIcon className="size-6 text-pink-300/70" />
           </motion.div>
         </HeroOrbit>
-        <HeroOrbit size={990} rotation={162}>
+        {/* <HeroOrbit size={990} rotation={162}>
           <motion.div
             animate={{ rotate: [45, -45, 45], scale: [1, 1.12, 1] }}
             transition={{ repeat: Infinity, duration: 5 }}
             className="size-5 rotate-45 rounded-sm border border-pink-300/70 bg-pink-300/20 shadow-[0_0_12px_rgba(236,72,153,0.5)]"
           />
-        </HeroOrbit>
+        </HeroOrbit> */}
         <HeroOrbit size={860} rotation={214}>
           <motion.div
             animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
@@ -188,13 +188,13 @@ export const HeroSection = () => {
             <StarIcon className="size-8 text-fuchsia-300/65" />
           </motion.div>
         </HeroOrbit>
-        <HeroOrbit size={690} rotation={286}>
+        {/* <HeroOrbit size={690} rotation={286}>
           <motion.div
             animate={{ rotate: [45, 110, 45], scale: [1, 1.12, 1] }}
             transition={{ repeat: Infinity, duration: 5.2 }}
             className="size-4 rotate-45 rounded-sm border border-purple-200/75 bg-purple-300/30 shadow-[0_0_14px_rgba(168,85,247,0.55)]"
           />
-        </HeroOrbit>
+        </HeroOrbit> */}
       </div>
 
       {/* ── Content ── */}
@@ -261,7 +261,7 @@ export const HeroSection = () => {
               initial="hidden"
               animate="visible"
               className="
-                font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                font-sans text-1xl sm:text-4xl md:text-5xl lg:text-6xl
                 font-bold tracking-tight mt-6 leading-[1.12]
                 bg-gradient-to-r from-pink-400 via-fuchsia-300 to-purple-400
                 text-transparent bg-clip-text drop-shadow-[0_0_12px_rgba(236,72,153,0.35)]

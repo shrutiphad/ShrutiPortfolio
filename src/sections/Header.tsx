@@ -126,7 +126,7 @@ export const Header = () => {
       >
         {/* logo wordmark */}
         <span className="text-sm font-bold bg-gradient-to-r from-pink-400 to-purple-400 text-transparent bg-clip-text tracking-wider">
-          Shruti.dev
+          shruti.in
         </span>
 
         {/* hamburger */}

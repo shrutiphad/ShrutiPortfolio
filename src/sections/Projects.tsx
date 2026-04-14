@@ -26,9 +26,9 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/SleepCare-IoT",
     image: sleepcareImage,
-    accentFrom: "from-pink-500/30",
-    accentTo:   "to-purple-600/20",
-    glowColor:  "rgba(236,72,153,0.25)",
+    // accentFrom: "from-pink-500/30",
+    // accentTo:   "to-purple-600/20",
+    // glowColor:  "rgba(236,72,153,0.25)",
   },
   {
     company: "Personal Project",
@@ -42,9 +42,9 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/SleepCare-IoT",
     image: promptlyImage,
-    accentFrom: "from-purple-500/30",
-    accentTo:   "to-fuchsia-600/20",
-    glowColor:  "rgba(168,85,247,0.25)",
+    // accentFrom: "from-purple-500/30",
+    // accentTo:   "to-fuchsia-600/20",
+    // glowColor:  "rgba(168,85,247,0.25)",
   },
   {
     company: "Personal Project",
@@ -58,9 +58,9 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/StayEscape",
     image: stayescapeImage,
-    accentFrom: "from-pink-400/30",
-    accentTo:   "to-rose-600/20",
-    glowColor:  "rgba(244,114,182,0.22)",
+    // accentFrom: "from-pink-400/30",
+    // accentTo:   "to-rose-600/20",
+    // glowColor:  "rgba(244,114,182,0.22)",
   },
   {
     company: "Personal Project",
@@ -74,9 +74,9 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/Investo-DashBoard",
     image: investoImage,
-    accentFrom: "from-violet-500/30",
-    accentTo:   "to-purple-600/20",
-    glowColor:  "rgba(139,92,246,0.25)",
+    // accentFrom: "from-violet-500/30",
+    // accentTo:   "to-purple-600/20",
+    // glowColor:  "rgba(139,92,246,0.25)",
   },
   {
     company: "Personal Project",
@@ -90,9 +90,9 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/Real-Time-SignVision-AI",
     image: signInterpreterImage,
-    accentFrom: "from-fuchsia-500/30",
-    accentTo:   "to-pink-600/20",
-    glowColor:  "rgba(217,70,239,0.25)",
+    // accentFrom: "from-fuchsia-500/30",
+    // accentTo:   "to-pink-600/20",
+    // glowColor:  "rgba(217,70,239,0.25)",
   },
 ];
 
@@ -167,15 +167,34 @@ export const ProjectsSection = () => {
                 scale: 1.02,
                 transition: { duration: 0.35 },
               }}
-              className="group relative rounded-3xl overflow-hidden will-change-transform"
+            
               style={{
                 perspective: 1200,
-                boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 0 60px ${project.glowColor}`,
+                boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 0 60px ${project}`,
+                
               }}
+              className=" group relative rounded-3xl overflow-hidden will-change-transformrelative bg-gray-800 rounded-3xl  
+              z-0 overflow-hidden 
+
+              before:absolute before:inset-0 before:-z-10
+              before:rounded-[28px] 
+              before:bg-gradient-to-r 
+              before:from-pink-400/50 
+              before:via-purple-600/60 
+              before:to-pink-400/50 
+              before:blur-xl 
+              before:opacity-80 
+
+              ring-1 ring-pink-400/40 
+              shadow-[0_0_40px_rgba(236,72,153,0.35)] 
+
+              md:pt-12 lg:pt-16 lg:px-20 md:px-10 
+              pt-8 px-8
+            "
             >
               {/* Gradient border via pseudo background */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${project.accentFrom} ${project.accentTo} opacity-60 group-hover:opacity-90 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${project} opacity-60 group-hover:opacity-90 transition-opacity duration-500`}
               />
 
               {/* Glassmorphism card body */}
@@ -278,7 +297,7 @@ export const ProjectsSection = () => {
                         {/* image glow */}
                         <div
                           className="absolute inset-0 rounded-xl blur-2xl scale-90 opacity-40 group-hover:opacity-60 transition-opacity duration-500"
-                          style={{ background: `radial-gradient(ellipse, ${project.glowColor} 0%, transparent 70%)` }}
+                          style={{ background: `radial-gradient(ellipse, ${project} 0%, transparent 70%)` }}
                         />
                         <Image
                           src={project.image}
