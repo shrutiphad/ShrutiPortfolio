@@ -111,6 +111,7 @@ export const ProjectsSection = () => {
         style={{ background: "radial-gradient(ellipse, rgba(236,72,153,0.14) 0%, rgba(168,85,247,0.1) 45%, transparent 75%)", filter: "blur(60px)" }}
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-pink-400/18 via-purple-400/18 to-transparent pointer-events-none" />
+      
       <div
         className="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: `url(${grainImage.src})` }}
@@ -125,7 +126,7 @@ export const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="uppercase font-semibold tracking-[0.28em] text-xs md:text-sm bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent bg-clip-text drop-shadow-[0_0_10px_rgba(217,70,239,0.35)]"
+            className="uppercase font-semibold tracking-[0.32em] text-[11px] md:text-sm bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent bg-clip-text drop-shadow-[0_0_10px_rgba(217,70,239,0.38)]"
           >
             Featured Projects
           </motion.p>
@@ -135,7 +136,7 @@ export const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-4xl md:text-6xl text-center mt-4 bg-gradient-to-r from-pink-200 via-fuchsia-200 to-purple-200 text-transparent bg-clip-text drop-shadow-[0_0_14px_rgba(236,72,153,0.25)]"
+            className="font-serif text-4xl md:text-6xl text-center mt-4 bg-gradient-to-r from-pink-100 via-fuchsia-200 to-purple-200 text-transparent bg-clip-text drop-shadow-[0_0_14px_rgba(236,72,153,0.28)]"
           >
             Selected Work
           </motion.h2>
@@ -145,7 +146,7 @@ export const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-base md:text-lg text-white/70 mt-4 max-w-xl mx-auto leading-relaxed"
+            className="text-center text-sm md:text-base text-white/75 mt-4 max-w-2xl mx-auto leading-relaxed"
           >
             A curated set of projects across web development, AI, and real-time systems.
           </motion.p>
@@ -178,7 +179,7 @@ export const ProjectsSection = () => {
               />
 
               {/* Glassmorphism card body */}
-              <div className="relative bg-gradient-to-br from-[#2a1736]/78 via-[#3a1f53]/72 to-[#26163d]/74 backdrop-blur-xl m-px rounded-[calc(1.5rem-1px)]">
+              <div className="relative bg-[#120d1a]/90 backdrop-blur-xl m-px rounded-[calc(1.5rem-1px)] p-2 md:p-3">
 
                 {/* grain texture */}
                 <div
@@ -186,11 +187,11 @@ export const ProjectsSection = () => {
                   style={{ backgroundImage: `url(${grainImage.src})` }}
                 />
 
-                <div className="relative z-10 p-8 md:p-10 lg:p-12">
-                  <div className="lg:grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+                <div className="relative z-10 p-3 md:p-4">
+                  <div className="lg:grid lg:grid-cols-2 gap-4 xl:gap-5 items-stretch">
 
                     {/* ── Left: text content ── */}
-                    <div className="flex flex-col">
+                    <div className="flex flex-col rounded-2xl bg-gradient-to-br from-[#3d1b52]/95 via-[#5a2f88]/90 to-[#6a40a5]/85 px-6 py-7 md:px-8 md:py-8 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]">
 
                       {/* company + year badge */}
                       <div className="inline-flex items-center gap-2 self-start">
@@ -211,8 +212,8 @@ export const ProjectsSection = () => {
                             key={t}
                             className="
                               px-2.5 py-0.5 text-[11px] font-semibold rounded-full
-                              border border-white/10 bg-white/5
-                              text-white/60 backdrop-blur-sm
+                              border border-white/20 bg-white/8
+                              text-white/75 backdrop-blur-sm
                               group-hover:border-pink-400/30 group-hover:text-white/80
                               transition-all duration-300
                             "
@@ -222,7 +223,7 @@ export const ProjectsSection = () => {
                         ))}
                       </div>
 
-                      <hr className="border-t border-white/5 mt-5" />
+                      <hr className="border-t border-white/15 mt-5" />
 
                       {/* result bullets */}
                       <ul className="flex flex-col gap-3 mt-5">
@@ -233,7 +234,7 @@ export const ProjectsSection = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 + idx * 0.1, duration: 0.5 }}
-                            className="flex items-start gap-2.5 text-sm md:text-base text-white/50"
+                            className="flex items-start gap-2.5 text-sm md:text-base text-white/82"
                           >
                             <CheckCircleIcon className="size-5 shrink-0 mt-0.5 text-pink-400/70" />
                             <span>{result.title}</span>
@@ -251,28 +252,27 @@ export const ProjectsSection = () => {
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         className="
                           mt-8 self-start inline-flex items-center justify-center gap-2
-                          bg-gradient-to-r from-pink-500 to-purple-600
-                          text-white font-semibold text-sm
-                          px-7 h-12 rounded-xl
-                          shadow-lg shadow-pink-500/20
-                          hover:from-pink-400 hover:to-purple-500
+                          bg-white text-[#2b1c45] font-semibold text-sm
+                          px-6 h-11 rounded-xl
+                          shadow-lg shadow-black/25
+                          hover:bg-white/90
                           transition-all duration-300
                         "
                       >
-                        Explore Project
+                        Live Site
                         <ArrowUpRightIcon className="size-4 rotate-[-135deg]" />
                       </motion.a>
                     </div>
 
                     {/* ── Right: image ── */}
-                    <div className="relative mt-10 lg:mt-0 min-h-[260px] md:min-h-[320px]">
+                    <div className="relative mt-4 lg:mt-0 min-h-[260px] md:min-h-[320px] rounded-2xl bg-white/95 p-2 md:p-3 overflow-hidden shadow-[0_0_0_1px_rgba(255,255,255,0.6)]">
                       <motion.div
                         initial={{ opacity: 0, scale: 0.78, rotateX: -22 }}
                         whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.72, delay: 0.2, type: "spring", stiffness: 110, damping: 20 }}
                         whileHover={{ scale: 1.02 }}
-                        className="relative"
+                        className="relative h-full"
                       >
                         {/* image glow */}
                         <div
@@ -286,9 +286,9 @@ export const ProjectsSection = () => {
                           height={380}
                           className="
                             relative z-10 w-full rounded-xl object-cover
-                            border border-white/10
+                            border border-black/5
                             shadow-2xl
-                            group-hover:border-white/20 transition-all duration-500
+                            group-hover:border-black/10 transition-all duration-500
                             h-[240px] md:h-[320px] lg:h-[360px]
                           "
                         />

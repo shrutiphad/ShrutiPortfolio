@@ -87,7 +87,7 @@ useEffect(() => {
                hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]
                transition-all duration-300
              ">
-              PEOPLE WHO LEARN AI BUILD THE FUTURE
+              PEOPLE WHO USE AI WILL LEAD
             </span>
           </>
         }

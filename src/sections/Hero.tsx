@@ -214,12 +214,12 @@ export const HeroSection = () => {
                 className="absolute inset-0 rounded-full pointer-events-none"
                 style={{
                   background:
-                    'conic-gradient(from 0deg, rgba(168,85,247,0.28), rgba(236,72,153,0.24), rgba(168,85,247,0))',
-                  filter: 'blur(12px)',
-                  transform: 'scale(1.08)',
+                    'conic-gradient(from 0deg, rgba(168,85,247,0.18), rgba(236,72,153,0.14), rgba(168,85,247,0))',
+                  filter: 'blur(9px)',
+                  transform: 'scale(1.05)',
                 }}
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 10, ease: 'linear' }}
+                transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
               />
               <Image
                 src={memojiImage}
