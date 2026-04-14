@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import grainImage from "@/assets/images/grain.jpg";
 import { PropsWithChildren } from "react";

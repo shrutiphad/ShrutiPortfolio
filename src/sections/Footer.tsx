@@ -1,3 +1,4 @@
+"use client";
 import grainImage from "@/assets/images/grain.jpg";
 import { motion } from "framer-motion";
 
