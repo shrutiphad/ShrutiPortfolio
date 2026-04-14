@@ -156,17 +156,17 @@ export const ProjectsSection = () => {
           {portfolioProjects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, rotateY: i % 2 === 0 ? -220 : 220, y: 80, scale: 0.9 }}
+              initial={{ opacity: 0, rotateY: i % 2 === 0 ? -120 : 120, y: 56, scale: 0.94 }}
               whileInView={{ opacity: 1, rotateY: 0, y: 0, scale: 1 }}
-              viewport={{ once: false, margin: "-120px" }}
-              transition={{ duration: 1.1, type: "spring", stiffness: 72, damping: 16 }}
+              viewport={{ once: true, margin: "-120px" }}
+              transition={{ duration: 0.85, type: "spring", stiffness: 90, damping: 22 }}
               whileHover={{
-                rotateY: i % 2 === 0 ? 8 : -8,
-                y: -10,
-                scale: 1.02,
-                transition: { duration: 0.35 },
+                rotateY: i % 2 === 0 ? 5 : -5,
+                y: -8,
+                scale: 1.015,
+                transition: { duration: 0.3 },
               }}
-              className="group relative rounded-3xl overflow-hidden"
+              className="group relative rounded-3xl overflow-hidden will-change-transform"
               style={{
                 perspective: 1200,
                 boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 0 60px ${project.glowColor}`,
@@ -269,9 +269,9 @@ export const ProjectsSection = () => {
                       <motion.div
                         initial={{ opacity: 0, scale: 0.78, rotateX: -22 }}
                         whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
-                        viewport={{ once: false, margin: "-100px" }}
-                        transition={{ duration: 0.85, delay: 0.28, type: "spring", stiffness: 95 }}
-                        whileHover={{ scale: 1.03 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.72, delay: 0.2, type: "spring", stiffness: 110, damping: 20 }}
+                        whileHover={{ scale: 1.02 }}
                         className="relative"
                       >
                         {/* image glow */}

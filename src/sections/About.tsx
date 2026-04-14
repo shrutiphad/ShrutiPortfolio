@@ -79,12 +79,12 @@ useEffect(() => {
           <>
             <span className="
                block mt-9
-               text-xl md:text-5xl lg:text-6xl
-                tracking-wide
-               bg-gradient-to-r text-white
+               text-base md:text-3xl lg:text-4xl
+               tracking-[0.14em]
+               bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent
                bg-clip-text
-               drop-shadow-[0_0_6px_rgba(168,85,247,0.4)]
-               hover:drop-shadow-[0_0_18px_rgba(168,85,247,1)]
+               drop-shadow-[0_0_8px_rgba(168,85,247,0.45)]
+               hover:drop-shadow-[0_0_16px_rgba(236,72,153,0.9)]
                transition-all duration-300
              ">
               PEOPLE WHO USE AI WILL LEAD
@@ -151,8 +151,9 @@ useEffect(() => {
           viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 90 }}
           style={{ perspective: 1000 }}
+          className="h-full"
         >
-        <Card className="gradient-card">
+        <Card className="gradient-card h-full flex flex-col">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />
             <h3 className="text-2xl font-semibold">System Design</h3>
@@ -169,7 +170,7 @@ useEffect(() => {
             height={300}
             className="mt-6 rounded-2xl"
           />
-          <p className="mt-8 text-base md:text-lg text-purple-200/90 font-semibold text-center">
+          <p className="mt-auto pt-8 text-base md:text-lg text-purple-200/90 font-semibold text-center">
             Hosting and Deploying
           </p>
         </Card>
@@ -182,8 +183,9 @@ useEffect(() => {
           viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 90, delay: 0.05 }}
           style={{ perspective: 1000 }}
+          className="h-full"
         >
-        <Card className="gradient-card">
+        <Card className="gradient-card h-full flex flex-col">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />
             <h3 className="text-2xl font-semibold">Tech Stack</h3>
@@ -207,6 +209,9 @@ useEffect(() => {
               </div>
             ))}
           </div>
+          <p className="mt-auto pt-8 text-center text-sm md:text-base text-white/70">
+            Always flexible to learn and adapt to new stacks quickly.
+          </p>
         </Card>
         </motion.div>
 

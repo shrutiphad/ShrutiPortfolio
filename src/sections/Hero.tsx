@@ -58,31 +58,126 @@ export const HeroSection = () => {
 
         {/* orbiting icons */}
         <HeroOrbit size={800} rotation={-72}>
-          <StarIcon className="size-28 text-pink-400/40" />
+          <motion.div
+            animate={{ rotate: 360, scale: [1, 1.08, 1] }}
+            transition={{ repeat: Infinity, duration: 9, ease: 'linear' }}
+            className="drop-shadow-[0_0_14px_rgba(236,72,153,0.35)]"
+          >
+            <StarIcon className="size-28 text-pink-400/40" />
+          </motion.div>
         </HeroOrbit>
         <HeroOrbit size={550} rotation={20}>
-          <StarIcon className="size-12 text-pink-300/40" />
+          <motion.div
+            animate={{ rotate: -360, scale: [1, 1.1, 1] }}
+            transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
+            className="drop-shadow-[0_0_10px_rgba(236,72,153,0.4)]"
+          >
+            <StarIcon className="size-12 text-pink-300/40" />
+          </motion.div>
         </HeroOrbit>
         <HeroOrbit size={590} rotation={98}>
-          <StarIcon className="size-8 text-purple-300/70" />
+          <motion.div
+            animate={{ rotate: 360, scale: [1, 1.12, 1] }}
+            transition={{ repeat: Infinity, duration: 7.5, ease: 'linear' }}
+            className="drop-shadow-[0_0_10px_rgba(168,85,247,0.45)]"
+          >
+            <StarIcon className="size-8 text-purple-300/70" />
+          </motion.div>
         </HeroOrbit>
         <HeroOrbit size={430} rotation={-15}>
-          <SparkleIcon className="size-8 text-purple-300/40" />
+          <motion.div
+            animate={{ rotate: [0, 45, 0], scale: [1, 1.15, 1] }}
+            transition={{ repeat: Infinity, duration: 3.4 }}
+            className="drop-shadow-[0_0_12px_rgba(168,85,247,0.5)]"
+          >
+            <SparkleIcon className="size-8 text-purple-300/40" />
+          </motion.div>
         </HeroOrbit>
         <HeroOrbit size={440} rotation={79}>
-          <SparkleIcon className="size-5 text-purple-300/40" />
+          <motion.div
+            animate={{ rotate: [0, -35, 0], scale: [1, 1.2, 1] }}
+            transition={{ repeat: Infinity, duration: 3 }}
+            className="drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+          >
+            <SparkleIcon className="size-5 text-purple-300/40" />
+          </motion.div>
         </HeroOrbit>
         <HeroOrbit size={530} rotation={178}>
-          <SparkleIcon className="size-10 text-pink-300/40" />
+          <motion.div
+            animate={{ rotate: [0, 40, 0], scale: [1, 1.12, 1] }}
+            transition={{ repeat: Infinity, duration: 3.8 }}
+            className="drop-shadow-[0_0_12px_rgba(236,72,153,0.45)]"
+          >
+            <SparkleIcon className="size-10 text-pink-300/40" />
+          </motion.div>
         </HeroOrbit>
         <HeroOrbit size={710} rotation={144}>
-          <SparkleIcon className="size-10 text-purple-300/40" />
+          <motion.div
+            animate={{ rotate: [0, -38, 0], scale: [1, 1.1, 1] }}
+            transition={{ repeat: Infinity, duration: 4.2 }}
+            className="drop-shadow-[0_0_12px_rgba(168,85,247,0.45)]"
+          >
+            <SparkleIcon className="size-10 text-purple-300/40" />
+          </motion.div>
         </HeroOrbit>
         <HeroOrbit size={880} rotation={95}>
-          <StarIcon className="size-28 text-pink-300/50" />
+          <motion.div
+            animate={{ rotate: 360, scale: [1, 1.08, 1] }}
+            transition={{ repeat: Infinity, duration: 11, ease: 'linear' }}
+            className="drop-shadow-[0_0_14px_rgba(236,72,153,0.35)]"
+          >
+            <StarIcon className="size-28 text-pink-300/50" />
+          </motion.div>
         </HeroOrbit>
         <HeroOrbit size={520} rotation={0}>
-          <StarIcon className="size-3 text-pink-400/70" />
+          <motion.div
+            animate={{ rotate: -360, scale: [1, 1.2, 1] }}
+            transition={{ repeat: Infinity, duration: 6.5, ease: 'linear' }}
+            className="drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]"
+          >
+            <StarIcon className="size-3 text-pink-400/70" />
+          </motion.div>
+        </HeroOrbit>
+        <HeroOrbit size={640} rotation={36}>
+          <motion.div
+            animate={{ rotate: [45, 95, 45], scale: [1, 1.14, 1] }}
+            transition={{ repeat: Infinity, duration: 4.5 }}
+            className="size-4 rotate-45 rounded-sm border border-fuchsia-300/70 bg-fuchsia-300/20 shadow-[0_0_12px_rgba(217,70,239,0.55)]"
+          />
+        </HeroOrbit>
+        <HeroOrbit size={760} rotation={12}>
+          <motion.div
+            animate={{ rotate: [0, -360], scale: [1, 1.1, 1] }}
+            transition={{ repeat: Infinity, duration: 8.4, ease: 'linear' }}
+            className="drop-shadow-[0_0_10px_rgba(217,70,239,0.45)]"
+          >
+            <SparkleIcon className="size-6 text-fuchsia-300/70" />
+          </motion.div>
+        </HeroOrbit>
+        <HeroOrbit size={470} rotation={132}>
+          <motion.div
+            animate={{ rotate: [0, 360], scale: [1, 1.16, 1] }}
+            transition={{ repeat: Infinity, duration: 7.2, ease: 'linear' }}
+            className="drop-shadow-[0_0_10px_rgba(236,72,153,0.5)]"
+          >
+            <StarIcon className="size-6 text-pink-300/70" />
+          </motion.div>
+        </HeroOrbit>
+        <HeroOrbit size={990} rotation={162}>
+          <motion.div
+            animate={{ rotate: [45, -45, 45], scale: [1, 1.12, 1] }}
+            transition={{ repeat: Infinity, duration: 5 }}
+            className="size-5 rotate-45 rounded-sm border border-pink-300/70 bg-pink-300/20 shadow-[0_0_12px_rgba(236,72,153,0.5)]"
+          />
+        </HeroOrbit>
+        <HeroOrbit size={860} rotation={214}>
+          <motion.div
+            animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
+            transition={{ repeat: Infinity, duration: 9.5, ease: 'linear' }}
+            className="drop-shadow-[0_0_10px_rgba(168,85,247,0.45)]"
+          >
+            <SparkleIcon className="size-7 text-purple-300/70" />
+          </motion.div>
         </HeroOrbit>
       </div>
 
@@ -150,10 +245,10 @@ export const HeroSection = () => {
               initial="hidden"
               animate="visible"
               className="
-                font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-                font-bold tracking-tight mt-6 leading-[1.1]
+                font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                font-bold tracking-tight mt-6 leading-[1.12]
                 bg-gradient-to-r from-pink-400 via-fuchsia-300 to-purple-400
-                text-transparent bg-clip-text
+                text-transparent bg-clip-text drop-shadow-[0_0_12px_rgba(236,72,153,0.35)]
               "
             >
               Building websites and{' '}
@@ -176,7 +271,7 @@ export const HeroSection = () => {
             variants={fadeUp(0.65)}
             initial="hidden"
             animate="visible"
-            className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-10"
+            className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-4 mt-10"
           >
             {/* Ghost button */}
             <motion.a
@@ -216,6 +311,25 @@ export const HeroSection = () => {
             >
               <span>🤝</span>
               <span>Let&apos;s Collaborate</span>
+            </motion.a>
+
+            <motion.a
+              href="https://www.linkedin.com/in/shruti-phad-7901aa325/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(168,85,247,0.35)' }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="
+                inline-flex items-center justify-center gap-2
+                border border-purple-300/40 bg-purple-500/10 backdrop-blur-sm
+                px-7 h-12 rounded-xl font-semibold text-white/90
+                hover:bg-purple-500/20 hover:border-pink-300/60
+                transition-all duration-300 cursor-pointer
+              "
+            >
+              <span>in</span>
+              <span>LinkedIn</span>
             </motion.a>
           </motion.div>
         </div>
