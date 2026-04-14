@@ -20,9 +20,10 @@ import PythonIcon from "@/assets/icons/python.svg";
 import { TechIcon } from "@/components/TechIcon";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import grainImage from "@/assets/images/grain.jpg";
 
 
-const words = ["CREATIVE", "CONFIDENT", "COMPETENT"];
+const words = ["CREATIVE", "CONFIDENT", "CONSISTENT"];
 
 const toolItems = [
   { title: "JavaScript", iconType: JavaScriptIcon },
@@ -65,10 +66,15 @@ useEffect(() => {
   if (!mounted) return null;
   
   return (
-    <section id="about" className="pb-24">
+    <section id="about" className="relative pb-24 overflow-hidden">
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none"
+        style={{ backgroundImage: `url(${grainImage.src})` }}
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-purple-500/10 via-pink-500/5 to-transparent pointer-events-none" />
       <SectionHeader
         eyebrow="About Me"
-        title="currently focusing on the upskilling qualities"
+        title="Focused on skills that compound over time"
         description={
           <>
             <span className="
@@ -81,14 +87,20 @@ useEffect(() => {
                hover:drop-shadow-[0_0_18px_rgba(168,85,247,1)]
                transition-all duration-300
              ">
-              AI WON&apos;T REPLACE
+              PEOPLE WHO USE AI WILL LEAD
             </span>
           </>
         }
       />
 
       
-      <div className="flex justify-center items-center gap-6 mt-6">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.35 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="flex justify-center items-center gap-6 mt-6"
+      >
   {words.map((word, index) => (
     <div key={word} className="flex items-center gap-6">
 
@@ -127,12 +139,19 @@ useEffect(() => {
       )}
     </div>
   ))}
-</div>
+</motion.div>
    
 
       <div className="container mt-12 grid gap-8 md:grid-cols-2">
         
         
+        <motion.div
+          initial={{ opacity: 0, x: -80, rotateY: -12 }}
+          whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 90 }}
+          style={{ perspective: 1000 }}
+        >
         <Card className="gradient-card">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />
@@ -140,7 +159,7 @@ useEffect(() => {
           </div>
 
           <p className="mt-12 text-white/80">
-            Learning Docker, understanding CI/CD pipelines for infrastructure and scalable architecture fundamentals.
+            Learning Docker and CI/CD pipelines to strengthen deployment workflows and scalable architecture fundamentals.
           </p>
 
           <Image
@@ -150,10 +169,20 @@ useEffect(() => {
             height={300}
             className="mt-6 rounded-2xl"
           />
-          <p className="mt-12 text-xl text-purple-700/90 font-semibold">   &nbsp; &nbsp; &nbsp; Hosting & Deploying </p>
+          <p className="mt-8 text-base md:text-lg text-purple-200/90 font-semibold text-center">
+            Hosting and Deploying
+          </p>
         </Card>
+        </motion.div>
 
        
+        <motion.div
+          initial={{ opacity: 0, x: 80, rotateY: 12 }}
+          whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+          viewport={{ once: false, amount: 0.25 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 90, delay: 0.05 }}
+          style={{ perspective: 1000 }}
+        >
         <Card className="gradient-card">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />
@@ -164,7 +193,7 @@ useEffect(() => {
             {toolItems.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col items-center gap-0.05
+                className="flex flex-col items-center gap-1
                 rounded-xl px-4 py-4
                 bg-gradient-to-br from-pink-500/20 to-purple-500/20
                 hover:scale-105 transition-all"
@@ -173,15 +202,22 @@ useEffect(() => {
                   <TechIcon component={item.iconType} />
                 </div>
                 <span className="text-xs font-semibold text-pink-100 text-center">
-                  <br/>
                   {item.title}
                 </span>
               </div>
             ))}
           </div>
         </Card>
+        </motion.div>
 
 
+        <motion.div
+          initial={{ opacity: 0, y: 90, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.85, type: "spring", stiffness: 85 }}
+          className="md:col-span-2"
+        >
         <Card className="gradient-card md:col-span-2">
           <div className="flex items-center gap-3 text-pink-300">
             <StarIcon className="size-5" />
@@ -210,6 +246,7 @@ useEffect(() => {
           </div>
 
         </Card>
+        </motion.div>
       </div>
     </section>
   );
