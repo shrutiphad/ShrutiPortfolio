@@ -96,16 +96,6 @@ const portfolioProjects = [
   },
 ];
 
-/* ── animation variants ──────────────────────────────────────── */
-const cardVariants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 },
-  }),
-};
-
 /* ── component ───────────────────────────────────────────────── */
 export const ProjectsSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -113,12 +103,17 @@ export const ProjectsSection = () => {
   if (!mounted) return null;
 
   return (
-    <section id="projects" className="py-20 lg:py-32 relative overflow-hidden">
+    <section id="projects" className="pt-10 pb-18 lg:pt-16 lg:pb-24 relative overflow-hidden">
 
       {/* subtle section glow blob */}
       <div
         className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none -z-10"
-        style={{ background: "radial-gradient(ellipse, rgba(168,85,247,0.08) 0%, transparent 70%)", filter: "blur(60px)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(236,72,153,0.14) 0%, rgba(168,85,247,0.1) 45%, transparent 75%)", filter: "blur(60px)" }}
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-pink-500/10 via-purple-500/10 to-transparent pointer-events-none" />
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none"
+        style={{ backgroundImage: `url(${grainImage.src})` }}
       />
 
       <div className="container mx-auto px-6 lg:px-8">
@@ -161,14 +156,19 @@ export const ProjectsSection = () => {
           {portfolioProjects.map((project, i) => (
             <motion.div
               key={project.title}
-              custom={i}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
+              initial={{ opacity: 0, rotateY: i % 2 === 0 ? -220 : 220, y: 80, scale: 0.9 }}
+              whileInView={{ opacity: 1, rotateY: 0, y: 0, scale: 1 }}
+              viewport={{ once: false, margin: "-120px" }}
+              transition={{ duration: 1.1, type: "spring", stiffness: 72, damping: 16 }}
+              whileHover={{
+                rotateY: i % 2 === 0 ? 8 : -8,
+                y: -10,
+                scale: 1.02,
+                transition: { duration: 0.35 },
+              }}
               className="group relative rounded-3xl overflow-hidden"
               style={{
+                perspective: 1200,
                 boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 0 60px ${project.glowColor}`,
               }}
             >
@@ -178,7 +178,7 @@ export const ProjectsSection = () => {
               />
 
               {/* Glassmorphism card body */}
-              <div className="relative bg-gray-950/80 backdrop-blur-xl m-px rounded-[calc(1.5rem-1px)]">
+              <div className="relative bg-gradient-to-br from-gray-900/85 via-[#211030]/80 to-[#170d27]/80 backdrop-blur-xl m-px rounded-[calc(1.5rem-1px)]">
 
                 {/* grain texture */}
                 <div
@@ -246,30 +246,32 @@ export const ProjectsSection = () => {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.04 }}
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 28px rgba(236,72,153,0.38)" }}
                         whileTap={{ scale: 0.97 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         className="
                           mt-8 self-start inline-flex items-center justify-center gap-2
                           bg-gradient-to-r from-pink-500 to-purple-600
                           text-white font-semibold text-sm
-                          px-6 h-11 rounded-xl
+                          px-7 h-12 rounded-xl
                           shadow-lg shadow-pink-500/20
                           hover:from-pink-400 hover:to-purple-500
                           transition-all duration-300
                         "
                       >
-                        View Project
+                        Explore Project
                         <ArrowUpRightIcon className="size-4 rotate-[-135deg]" />
                       </motion.a>
                     </div>
 
                     {/* ── Right: image ── */}
-                    <div className="relative mt-10 lg:mt-0">
+                    <div className="relative mt-10 lg:mt-0 min-h-[260px] md:min-h-[320px]">
                       <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        initial={{ opacity: 0, scale: 0.78, rotateX: -22 }}
+                        whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
+                        viewport={{ once: false, margin: "-100px" }}
+                        transition={{ duration: 0.85, delay: 0.28, type: "spring", stiffness: 95 }}
+                        whileHover={{ scale: 1.03 }}
                         className="relative"
                       >
                         {/* image glow */}
@@ -287,7 +289,7 @@ export const ProjectsSection = () => {
                             border border-white/10
                             shadow-2xl
                             group-hover:border-white/20 transition-all duration-500
-                            lg:absolute lg:h-full lg:w-auto lg:max-w-none
+                            h-[240px] md:h-[320px] lg:h-[360px]
                           "
                         />
                       </motion.div>

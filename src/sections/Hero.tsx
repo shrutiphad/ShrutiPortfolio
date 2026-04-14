@@ -29,7 +29,7 @@ const fadeIn = (delay = 0) => ({
 
 export const HeroSection = () => {
   return (
-    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
+    <div className="pt-28 pb-12 md:pt-40 md:pb-16 lg:pt-52 lg:pb-20 relative z-0 overflow-x-clip">
 
       {/* ── Background layer: grain + rings + orbits ── */}
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
