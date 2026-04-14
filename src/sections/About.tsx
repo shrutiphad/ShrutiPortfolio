@@ -79,15 +79,15 @@ useEffect(() => {
           <>
             <span className="
                block mt-9
-               text-base md:text-3xl lg:text-4xl
-               tracking-[0.14em]
-               bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent
+               text-sm md:text-2xl lg:text-3xl
+               tracking-[0.16em]
+               bg-gradient-to-r from-pink-200 via-fuchsia-300 to-purple-300 text-transparent
                bg-clip-text
-               drop-shadow-[0_0_8px_rgba(168,85,247,0.45)]
-               hover:drop-shadow-[0_0_16px_rgba(236,72,153,0.9)]
+               drop-shadow-[0_0_10px_rgba(168,85,247,0.55)]
+               hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]
                transition-all duration-300
              ">
-              PEOPLE WHO USE AI WILL LEAD
+              PEOPLE WHO LEARN AI BUILD THE FUTURE
             </span>
           </>
         }

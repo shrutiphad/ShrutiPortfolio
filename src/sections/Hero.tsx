@@ -179,6 +179,22 @@ export const HeroSection = () => {
             <SparkleIcon className="size-7 text-purple-300/70" />
           </motion.div>
         </HeroOrbit>
+        <HeroOrbit size={1020} rotation={248}>
+          <motion.div
+            animate={{ rotate: [0, -360], scale: [1, 1.08, 1] }}
+            transition={{ repeat: Infinity, duration: 10.5, ease: 'linear' }}
+            className="drop-shadow-[0_0_12px_rgba(236,72,153,0.45)]"
+          >
+            <StarIcon className="size-8 text-fuchsia-300/65" />
+          </motion.div>
+        </HeroOrbit>
+        <HeroOrbit size={690} rotation={286}>
+          <motion.div
+            animate={{ rotate: [45, 110, 45], scale: [1, 1.12, 1] }}
+            transition={{ repeat: Infinity, duration: 5.2 }}
+            className="size-4 rotate-45 rounded-sm border border-purple-200/75 bg-purple-300/30 shadow-[0_0_14px_rgba(168,85,247,0.55)]"
+          />
+        </HeroOrbit>
       </div>
 
       {/* ── Content ── */}
@@ -198,12 +214,12 @@ export const HeroSection = () => {
                 className="absolute inset-0 rounded-full pointer-events-none"
                 style={{
                   background:
-                    'conic-gradient(from 0deg, rgba(168,85,247,0.5), rgba(236,72,153,0.5), rgba(168,85,247,0))',
-                  filter: 'blur(18px)',
-                  transform: 'scale(1.12)',
+                    'conic-gradient(from 0deg, rgba(168,85,247,0.28), rgba(236,72,153,0.24), rgba(168,85,247,0))',
+                  filter: 'blur(12px)',
+                  transform: 'scale(1.08)',
                 }}
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
+                transition={{ repeat: Infinity, duration: 10, ease: 'linear' }}
               />
               <Image
                 src={memojiImage}
@@ -317,19 +333,40 @@ export const HeroSection = () => {
               href="https://www.linkedin.com/in/shruti-phad-7901aa325/"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(59,130,246,0.45)' }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="
+                inline-flex items-center justify-center gap-2
+                border border-blue-300/40 bg-blue-500/15 backdrop-blur-sm
+                px-7 h-12 rounded-xl font-semibold text-blue-50
+                hover:bg-blue-500/25 hover:border-cyan-300/70
+                transition-all duration-300 cursor-pointer
+              "
+            >
+              <span className="inline-flex items-center justify-center size-5 rounded-sm bg-blue-500/80 text-[11px] font-bold text-white">in</span>
+              <span>LinkedIn</span>
+            </motion.a>
+
+            <motion.a
+              href="https://github.com/shrutiphad"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(168,85,247,0.35)' }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               className="
                 inline-flex items-center justify-center gap-2
-                border border-purple-300/40 bg-purple-500/10 backdrop-blur-sm
+                border border-white/25 bg-white/8 backdrop-blur-sm
                 px-7 h-12 rounded-xl font-semibold text-white/90
-                hover:bg-purple-500/20 hover:border-pink-300/60
+                hover:bg-white/15 hover:border-fuchsia-300/60
                 transition-all duration-300 cursor-pointer
               "
             >
-              <span>in</span>
-              <span>LinkedIn</span>
+              <svg viewBox="0 0 24 24" className="size-5 fill-current" aria-hidden="true">
+                <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42a3.18 3.18 0 0 0-1.33-1.76c-1.08-.74.08-.72.08-.72a2.52 2.52 0 0 1 1.84 1.23 2.56 2.56 0 0 0 3.5 1 2.57 2.57 0 0 1 .76-1.61c-2.66-.3-5.45-1.33-5.45-5.92a4.64 4.64 0 0 1 1.24-3.22 4.3 4.3 0 0 1 .12-3.18s1.01-.32 3.3 1.23a11.43 11.43 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23a4.3 4.3 0 0 1 .12 3.18 4.63 4.63 0 0 1 1.23 3.22c0 4.61-2.8 5.61-5.47 5.9a2.87 2.87 0 0 1 .81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z" />
+              </svg>
+              <span>GitHub</span>
             </motion.a>
           </motion.div>
         </div>

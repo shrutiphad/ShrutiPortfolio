@@ -110,7 +110,7 @@ export const ProjectsSection = () => {
         className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none -z-10"
         style={{ background: "radial-gradient(ellipse, rgba(236,72,153,0.14) 0%, rgba(168,85,247,0.1) 45%, transparent 75%)", filter: "blur(60px)" }}
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-pink-500/10 via-purple-500/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-pink-400/18 via-purple-400/18 to-transparent pointer-events-none" />
       <div
         className="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: `url(${grainImage.src})` }}
@@ -125,7 +125,7 @@ export const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="uppercase font-semibold tracking-widest text-sm bg-gradient-to-r from-pink-300 to-purple-400 text-transparent bg-clip-text"
+            className="uppercase font-semibold tracking-[0.28em] text-xs md:text-sm bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent bg-clip-text drop-shadow-[0_0_10px_rgba(217,70,239,0.35)]"
           >
             Featured Projects
           </motion.p>
@@ -135,7 +135,7 @@ export const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-4xl md:text-6xl text-center mt-4 text-white"
+            className="font-serif text-4xl md:text-6xl text-center mt-4 bg-gradient-to-r from-pink-200 via-fuchsia-200 to-purple-200 text-transparent bg-clip-text drop-shadow-[0_0_14px_rgba(236,72,153,0.25)]"
           >
             Selected Work
           </motion.h2>
@@ -145,7 +145,7 @@ export const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-base md:text-lg text-white/45 mt-4 max-w-sm mx-auto"
+            className="text-center text-base md:text-lg text-white/70 mt-4 max-w-xl mx-auto leading-relaxed"
           >
             A curated set of projects across web development, AI, and real-time systems.
           </motion.p>
@@ -178,7 +178,7 @@ export const ProjectsSection = () => {
               />
 
               {/* Glassmorphism card body */}
-              <div className="relative bg-gradient-to-br from-gray-900/85 via-[#211030]/80 to-[#170d27]/80 backdrop-blur-xl m-px rounded-[calc(1.5rem-1px)]">
+              <div className="relative bg-gradient-to-br from-[#2a1736]/78 via-[#3a1f53]/72 to-[#26163d]/74 backdrop-blur-xl m-px rounded-[calc(1.5rem-1px)]">
 
                 {/* grain texture */}
                 <div
