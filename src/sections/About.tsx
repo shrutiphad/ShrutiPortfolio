@@ -99,7 +99,7 @@ useEffect(() => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.35 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="flex justify-center items-center gap-6 mt-6"
+        className="flex justify-center items-center gap-6 mt-12 md:mt-14"
       >
   {words.map((word, index) => (
     <div key={word} className="flex items-center gap-6">

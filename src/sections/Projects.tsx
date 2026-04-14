@@ -157,15 +157,15 @@ export const ProjectsSection = () => {
           {portfolioProjects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, rotateY: i % 2 === 0 ? -120 : 120, y: 56, scale: 0.94 }}
+              initial={{ opacity: 0, rotateY: i % 2 === 0 ? -360 : 360, y: 80, scale: 0.9 }}
               whileInView={{ opacity: 1, rotateY: 0, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-120px" }}
-              transition={{ duration: 0.85, type: "spring", stiffness: 90, damping: 22 }}
+              viewport={{ once: false, margin: "-120px" }}
+              transition={{ duration: 1.05, type: "spring", stiffness: 78, damping: 18 }}
               whileHover={{
-                rotateY: i % 2 === 0 ? 5 : -5,
-                y: -8,
-                scale: 1.015,
-                transition: { duration: 0.3 },
+                rotateY: i % 2 === 0 ? 7 : -7,
+                y: -9,
+                scale: 1.02,
+                transition: { duration: 0.35 },
               }}
               className="group relative rounded-3xl overflow-hidden will-change-transform"
               style={{
@@ -179,7 +179,7 @@ export const ProjectsSection = () => {
               />
 
               {/* Glassmorphism card body */}
-              <div className="relative bg-[#120d1a]/90 backdrop-blur-xl m-px rounded-[calc(1.5rem-1px)] p-2 md:p-3">
+              <div className="relative bg-gradient-to-br from-[#2f1a44]/78 via-[#4a2a69]/72 to-[#2a1a3f]/74 backdrop-blur-xl m-px rounded-[calc(1.5rem-1px)]">
 
                 {/* grain texture */}
                 <div
@@ -187,11 +187,11 @@ export const ProjectsSection = () => {
                   style={{ backgroundImage: `url(${grainImage.src})` }}
                 />
 
-                <div className="relative z-10 p-3 md:p-4">
-                  <div className="lg:grid lg:grid-cols-2 gap-4 xl:gap-5 items-stretch">
+                <div className="relative z-10 p-8 md:p-10 lg:p-12">
+                  <div className="lg:grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
                     {/* ── Left: text content ── */}
-                    <div className="flex flex-col rounded-2xl bg-gradient-to-br from-[#3d1b52]/95 via-[#5a2f88]/90 to-[#6a40a5]/85 px-6 py-7 md:px-8 md:py-8 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]">
+                    <div className="flex flex-col">
 
                       {/* company + year badge */}
                       <div className="inline-flex items-center gap-2 self-start">
@@ -212,8 +212,8 @@ export const ProjectsSection = () => {
                             key={t}
                             className="
                               px-2.5 py-0.5 text-[11px] font-semibold rounded-full
-                              border border-white/20 bg-white/8
-                              text-white/75 backdrop-blur-sm
+                              border border-white/10 bg-white/5
+                              text-white/60 backdrop-blur-sm
                               group-hover:border-pink-400/30 group-hover:text-white/80
                               transition-all duration-300
                             "
@@ -223,7 +223,7 @@ export const ProjectsSection = () => {
                         ))}
                       </div>
 
-                      <hr className="border-t border-white/15 mt-5" />
+                      <hr className="border-t border-white/5 mt-5" />
 
                       {/* result bullets */}
                       <ul className="flex flex-col gap-3 mt-5">
@@ -234,7 +234,7 @@ export const ProjectsSection = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 + idx * 0.1, duration: 0.5 }}
-                            className="flex items-start gap-2.5 text-sm md:text-base text-white/82"
+                            className="flex items-start gap-2.5 text-sm md:text-base text-white/50"
                           >
                             <CheckCircleIcon className="size-5 shrink-0 mt-0.5 text-pink-400/70" />
                             <span>{result.title}</span>
@@ -252,27 +252,28 @@ export const ProjectsSection = () => {
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         className="
                           mt-8 self-start inline-flex items-center justify-center gap-2
-                          bg-white text-[#2b1c45] font-semibold text-sm
-                          px-6 h-11 rounded-xl
-                          shadow-lg shadow-black/25
-                          hover:bg-white/90
+                          bg-gradient-to-r from-pink-500 to-purple-600
+                          text-white font-semibold text-sm
+                          px-7 h-12 rounded-xl
+                          shadow-lg shadow-pink-500/20
+                          hover:from-pink-400 hover:to-purple-500
                           transition-all duration-300
                         "
                       >
-                        Live Site
+                        Explore Project
                         <ArrowUpRightIcon className="size-4 rotate-[-135deg]" />
                       </motion.a>
                     </div>
 
                     {/* ── Right: image ── */}
-                    <div className="relative mt-4 lg:mt-0 min-h-[260px] md:min-h-[320px] rounded-2xl bg-white/95 p-2 md:p-3 overflow-hidden shadow-[0_0_0_1px_rgba(255,255,255,0.6)]">
+                    <div className="relative mt-10 lg:mt-0 min-h-[260px] md:min-h-[320px]">
                       <motion.div
                         initial={{ opacity: 0, scale: 0.78, rotateX: -22 }}
                         whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: false, margin: "-100px" }}
                         transition={{ duration: 0.72, delay: 0.2, type: "spring", stiffness: 110, damping: 20 }}
                         whileHover={{ scale: 1.02 }}
-                        className="relative h-full"
+                        className="relative"
                       >
                         {/* image glow */}
                         <div
@@ -286,9 +287,9 @@ export const ProjectsSection = () => {
                           height={380}
                           className="
                             relative z-10 w-full rounded-xl object-cover
-                            border border-black/5
+                            border border-white/10
                             shadow-2xl
-                            group-hover:border-black/10 transition-all duration-500
+                            group-hover:border-white/20 transition-all duration-500
                             h-[240px] md:h-[320px] lg:h-[360px]
                           "
                         />

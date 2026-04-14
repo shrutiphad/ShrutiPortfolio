@@ -36,7 +36,7 @@ export const SectionHeader = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.5 }}
         transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center font-sans text-2xl md:text-3xl mt-5 text-white"
+        className="text-center font-sans text-2xl md:text-3xl mt-7 text-white"
       >
         {title}
       </motion.h2>
@@ -46,7 +46,7 @@ export const SectionHeader = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.45 }}
         transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center font-sans text-2xl md:text-5xl lg:text-6xl mt-3 max-w-3xl mx-auto leading-tight bg-gradient-to-r from-pink-300/80 via-fuchsia-300/70 to-purple-400/80 text-transparent bg-clip-text"
+        className="text-center font-sans text-2xl md:text-5xl lg:text-6xl mt-6 max-w-3xl mx-auto leading-tight bg-gradient-to-r from-pink-300/80 via-fuchsia-300/70 to-purple-400/80 text-transparent bg-clip-text"
       >
         {description}
       </motion.div>
