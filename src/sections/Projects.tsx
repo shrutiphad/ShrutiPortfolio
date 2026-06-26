@@ -1,5 +1,5 @@
 "use client";
-
+import uniplacementImage from "@/assets/images/uni.jpeg";
 import sleepcareImage     from "@/assets/images/sleepcare.jpeg";
 import promptlyImage      from "@/assets/images/promptly.jpeg";
 import stayescapeImage    from "@/assets/images/stayescape.jpeg";
@@ -14,6 +14,24 @@ import { useState, useEffect } from "react";
 
 /* ── project data ─────────────────────────────────────────────── */
 const portfolioProjects = [
+
+    {
+    company: "Personal Project",
+    year: "2026",
+    title: "Uniplacement",
+    tech: ["Next.JS", "LLMs", "RAG",],
+    results: [
+      { title: "Engineered an AI-powered SaaS platform with role-based Admin/Student workflows, enabling automated eligibility filtering." } ,
+      { title: "Application tracking, and resume customization via skill–JD matching algorithms" },
+      { title: "Built an NLP-driven Resume Intelligence engine with RAG-based recommendations a" },
+    ],
+    link: "https://github.com/shrutiphad/Uniplacement-AI",
+    image: uniplacementImage,
+    // accentFrom: "from-pink-500/30",
+    // accentTo:   "to-purple-600/20",
+    // glowColor:  "rgba(236,72,153,0.25)",
+  },
+  
   {
     company: "Personal Project",
     year: "2026",
