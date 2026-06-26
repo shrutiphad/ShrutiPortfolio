@@ -246,8 +246,8 @@ export const HeroSection = () => {
                 text-transparent bg-clip-text drop-shadow-[0_0_12px_rgba(236,72,153,0.35)]
               "
             >
-              Engineering software. {' '}
-              <span className="block mt-1">Thinking in products</span>
+              Engineering software, {' '}
+              <span className="block mt-1">Thinking in products.</span>
             </motion.h1>
 
             <motion.p
