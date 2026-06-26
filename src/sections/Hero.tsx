@@ -138,13 +138,6 @@ export const HeroSection = () => {
             <StarIcon className="size-3 text-pink-400/70" />
           </motion.div>
         </HeroOrbit>
-        {/* <HeroOrbit size={640} rotation={36}>
-          <motion.div
-            animate={{ rotate: [45, 95, 45], scale: [1, 1.14, 1] }}
-            transition={{ repeat: Infinity, duration: 4.5 }}
-            className="size-4 rotate-45 rounded-sm border border-fuchsia-300/70 bg-fuchsia-300/20 shadow-[0_0_12px_rgba(217,70,239,0.55)]"
-          />
-        </HeroOrbit> */}
         <HeroOrbit size={760} rotation={12}>
           <motion.div
             animate={{ rotate: [0, -360], scale: [1, 1.1, 1] }}
@@ -163,13 +156,6 @@ export const HeroSection = () => {
             <StarIcon className="size-6 text-pink-300/70" />
           </motion.div>
         </HeroOrbit>
-        {/* <HeroOrbit size={990} rotation={162}>
-          <motion.div
-            animate={{ rotate: [45, -45, 45], scale: [1, 1.12, 1] }}
-            transition={{ repeat: Infinity, duration: 5 }}
-            className="size-5 rotate-45 rounded-sm border border-pink-300/70 bg-pink-300/20 shadow-[0_0_12px_rgba(236,72,153,0.5)]"
-          />
-        </HeroOrbit> */}
         <HeroOrbit size={860} rotation={214}>
           <motion.div
             animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
@@ -188,13 +174,6 @@ export const HeroSection = () => {
             <StarIcon className="size-8 text-fuchsia-300/65" />
           </motion.div>
         </HeroOrbit>
-        {/* <HeroOrbit size={690} rotation={286}>
-          <motion.div
-            animate={{ rotate: [45, 110, 45], scale: [1, 1.12, 1] }}
-            transition={{ repeat: Infinity, duration: 5.2 }}
-            className="size-4 rotate-45 rounded-sm border border-purple-200/75 bg-purple-300/30 shadow-[0_0_14px_rgba(168,85,247,0.55)]"
-          />
-        </HeroOrbit> */}
       </div>
 
       {/* ── Content ── */}
@@ -248,7 +227,7 @@ export const HeroSection = () => {
                   <span className="relative inline-flex size-3 rounded-full bg-green-500" />
                 </span>
                 <span className="text-sm font-medium text-white/80">
-                Forging, learning, and shipping better every day.
+                  Forging, learning, and shipping better every day.
                 </span>
               </div>
             </motion.div>
@@ -289,7 +268,7 @@ export const HeroSection = () => {
             animate="visible"
             className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-4 mt-10"
           >
-            {/* Ghost button */}
+            {/* Explore My Work */}
             <motion.a
               href="#projects"
               whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(168,85,247,0.35)' }}
@@ -307,13 +286,10 @@ export const HeroSection = () => {
               <ArrowDown className="size-4" />
             </motion.a>
 
-            {/* Solid button */}
+            {/* Let's Collaborate */}
             <motion.a
               href="#contact"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 0 28px rgba(236,72,153,0.4)',
-              }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 28px rgba(236,72,153,0.4)' }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               className="
@@ -329,6 +305,7 @@ export const HeroSection = () => {
               <span>Let&apos;s Collaborate</span>
             </motion.a>
 
+            {/* LinkedIn */}
             <motion.a
               href="https://www.linkedin.com/in/shruti-phad-7901aa325/"
               target="_blank"
@@ -348,6 +325,7 @@ export const HeroSection = () => {
               <span>LinkedIn</span>
             </motion.a>
 
+            {/* GitHub */}
             <motion.a
               href="https://github.com/shrutiphad"
               target="_blank"
@@ -368,6 +346,29 @@ export const HeroSection = () => {
               </svg>
               <span>GitHub</span>
             </motion.a>
+
+            {/* Resume */}
+            <motion.a
+              href="YOUR_GOOGLE_DRIVE_LINK_HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(236,72,153,0.45)' }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="
+                inline-flex items-center justify-center gap-2
+                border border-pink-400/40 bg-pink-500/10 backdrop-blur-sm
+                px-7 h-12 rounded-xl font-semibold text-pink-100
+                hover:bg-pink-500/20 hover:border-pink-300/70
+                transition-all duration-300 cursor-pointer
+              "
+            >
+              <svg viewBox="0 0 24 24" className="size-5 fill-current" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM12 17l-4-4h2.5v-4h3v4H16l-4 4z" />
+              </svg>
+              <span>Resume</span>
+            </motion.a>
+
           </motion.div>
         </div>
       </section>
