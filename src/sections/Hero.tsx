@@ -256,8 +256,7 @@ export const HeroSection = () => {
               animate="visible"
               className="mt-5 text-white/55 text-base md:text-lg leading-relaxed max-w-xl mx-auto"
             >
-              I am Shruti, an aspiring Software and AI/ML engineer focused on product thinking,
-              thoughtful digital experiences and making complex technology easy to understand.
+              I'm Shruti, part software engineer, part product thinker. I build backend systems and AI-powered products, and I care just as much about what we're building as how we build it.
             </motion.p>
           </div>
 
