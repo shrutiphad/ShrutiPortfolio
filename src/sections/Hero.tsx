@@ -347,27 +347,25 @@ export const HeroSection = () => {
               <span>GitHub</span>
             </motion.a>
 
-            {/* Resume */}
-            <motion.a
-              href="YOUR_GOOGLE_DRIVE_LINK_HERE"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(236,72,153,0.45)' }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="
-                inline-flex items-center justify-center gap-2
-                border border-pink-400/40 bg-pink-500/10 backdrop-blur-sm
-                px-7 h-12 rounded-xl font-semibold text-pink-100
-                hover:bg-pink-500/20 hover:border-pink-300/70
-                transition-all duration-300 cursor-pointer
-              "
-            >
-              <svg viewBox="0 0 24 24" className="size-5 fill-current" aria-hidden="true">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM12 17l-4-4h2.5v-4h3v4H16l-4 4z" />
-              </svg>
-              <span>Resume</span>
-            </motion.a>
+          <motion.a
+  href="/Shruti_Phad_Resume.pdf"
+  download="Shruti_Phad_Resume.pdf"
+  whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(236,72,153,0.45)' }}
+  whileTap={{ scale: 0.97 }}
+  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+  className="
+    inline-flex items-center justify-center gap-2
+    border border-pink-400/40 bg-pink-500/10 backdrop-blur-sm
+    px-7 h-12 rounded-xl font-semibold text-pink-100
+    hover:bg-pink-500/20 hover:border-pink-300/70
+    transition-all duration-300 cursor-pointer
+  "
+>
+  <svg viewBox="0 0 24 24" className="size-5 fill-current" aria-hidden="true">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM12 17l-4-4h2.5v-4h3v4H16l-4 4z" />
+  </svg>
+  <span>Resume</span>
+</motion.a>
 
           </motion.div>
         </div>
