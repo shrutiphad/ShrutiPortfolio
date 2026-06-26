@@ -248,7 +248,7 @@ export const HeroSection = () => {
                   <span className="relative inline-flex size-3 rounded-full bg-green-500" />
                 </span>
                 <span className="text-sm font-medium text-white/80">
-                  Building, learning, and shipping better every day.
+                Forging, learning, and shipping better every day.
                 </span>
               </div>
             </motion.div>
@@ -277,7 +277,7 @@ export const HeroSection = () => {
               animate="visible"
               className="mt-5 text-white/55 text-base md:text-lg leading-relaxed max-w-xl mx-auto"
             >
-              I am Shruti, an aspiring Software and AI/ML engineer focused on building
+              I am Shruti, an aspiring Software and AI/ML engineer focused on product thinking,
               thoughtful digital experiences and making complex technology easy to understand.
             </motion.p>
           </div>

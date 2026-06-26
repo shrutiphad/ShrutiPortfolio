@@ -76,20 +76,19 @@ useEffect(() => {
         eyebrow="About Me"
         title="Focused on skills that compound over time"
         description={
-          <>
-            <span className="
-               block mt-9
-               text-sm md:text-2xl lg:text-3xl
-               tracking-[0.16em]
-               bg-gradient-to-r from-pink-200 via-fuchsia-300 to-purple-300 text-transparent
-               bg-clip-text
-               drop-shadow-[0_0_10px_rgba(168,85,247,0.55)]
-               hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]
-               transition-all duration-300
-             ">
-              PEOPLE WHO USE AI WILL LEAD
-            </span>
-          </>
+          <div className="
+            mt-12
+            text-sm md:text-2xl lg:text-3xl
+            tracking-[0.16em]
+            bg-gradient-to-r from-pink-200 via-fuchsia-300 to-purple-300
+            text-transparent bg-clip-text
+            [-webkit-background-clip:text]
+            drop-shadow-[0_0_10px_rgba(168,85,247,0.55)]
+            hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]
+            transition-all duration-300
+          ">
+            PEOPLE WHO USE AI WILL LEAD
+          </div>
         }
       />
 

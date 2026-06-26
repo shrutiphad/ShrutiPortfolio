@@ -206,6 +206,8 @@ export const ProjectsSection = () => {
                   style={{ backgroundImage: `url(${grainImage.src})` }}
                 />
 
+
+
                 <div className="relative z-10 p-8 md:p-10 lg:p-12">
                   <div className="lg:grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
