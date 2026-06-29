@@ -22,22 +22,21 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import grainImage from "@/assets/images/grain.jpg";
 
-
 const words = ["CREATIVE", "CONFIDENT", "CONSISTENT"];
 
 const toolItems = [
   { title: "JavaScript", iconType: JavaScriptIcon },
-  { title: "Python", iconType: PythonIcon },
+  { title: "Python",     iconType: PythonIcon },
   { title: "TypeScript", iconType: TypeScriptIcon },
-  { title: "React", iconType: ReactIcon },
-  { title: "Next.js", iconType: NextIcon },
-  { title: "Node.js", iconType: NodeIcon },
-  { title: "Express", iconType: ExpressIcon },
-  { title: "MongoDB", iconType: MongoIcon },
+  { title: "React",      iconType: ReactIcon },
+  { title: "Next.js",    iconType: NextIcon },
+  { title: "Node.js",    iconType: NodeIcon },
+  { title: "Express",    iconType: ExpressIcon },
+  { title: "MongoDB",    iconType: MongoIcon },
   { title: "PostgreSQL", iconType: PostgresIcon },
-  { title: "HTML", iconType: HtmlIcon },
-  { title: "CSS", iconType: CssIcon },
-  { title: "Linux", iconType: LinuxIcon },
+  { title: "HTML",       iconType: HtmlIcon },
+  { title: "CSS",        iconType: CssIcon },
+  { title: "Linux",      iconType: LinuxIcon },
 ];
 
 const rotatingWords = [
@@ -45,16 +44,13 @@ const rotatingWords = [
   "PITCHING",
   "PRODUCT THINKING",
   "PUBLIC SPEAKING",
-]
+];
 
 export const AboutSection = () => {
   const [mounted, setMounted] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
-useEffect(() => {
-  setMounted(true);
-}, []);
-
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,198 +60,175 @@ useEffect(() => {
   }, []);
 
   if (!mounted) return null;
-  
+
   return (
-    <section id="about" className="relative pb-24 overflow-hidden">
+    <section id="about" className="relative pb-64 overflow-hidden">
+      {/* background */}
       <div
         className="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: `url(${grainImage.src})` }}
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-purple-500/10 via-pink-500/5 to-transparent pointer-events-none" />
+
+      {/* ── section header ── */}
       <SectionHeader
         eyebrow="About Me"
         title="Focused on skills that compound over time"
         description={
-          <div className="
-            mt-12
-            text-sm md:text-2xl lg:text-3xl
-            tracking-[0.16em]
+          <span className="
+            block mt-3
+            text-sm md:text-xl lg:text-2xl
+            tracking-[0.18em]
             bg-gradient-to-r from-pink-200 via-fuchsia-300 to-purple-300
             text-transparent bg-clip-text
             [-webkit-background-clip:text]
-            drop-shadow-[0_0_10px_rgba(168,85,247,0.55)]
-            hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.9)]
+            drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]
+            hover:drop-shadow-[0_0_20px_rgba(236,72,153,0.8)]
             transition-all duration-300
           ">
             PEOPLE WHO USE AI WILL LEAD
-          </div>
+          </span>
         }
       />
 
-      
+      {/* ── CREATIVE • CONFIDENT • CONSISTENT ── */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.35 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="flex justify-center items-center gap-6 mt-12 md:mt-14"
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="flex justify-center items-center gap-6 mt-6 md:mt-8"
       >
-  {words.map((word, index) => (
-    <div key={word} className="flex items-center gap-6">
+        {words.map((word, index) => (
+          <div key={word} className="flex items-center gap-6">
+            <motion.span
+              animate={{ y: [0, -14, 0] }}
+              transition={{
+                duration: 0.65,
+                repeat: Infinity,
+                repeatDelay: 1.2,
+                delay: index * 0.22,
+              }}
+              className="
+                text-xl md:text-3xl lg:text-4xl
+                font-extrabold italic
+                bg-gradient-to-r from-pink-400/65 via-purple-500/65 to-pink-500/65
+                bg-clip-text text-transparent
+                tracking-wider
+                drop-shadow-[0_0_6px_rgba(236,72,153,0.55)]
+              "
+            >
+              {word}
+            </motion.span>
 
-      <motion.span
-        initial={{ y: 0 }}
-        animate={{ y: [0, -20, 0] }}
-        transition={{
-          duration: 0.7,
-          repeat: Infinity,
-          repeatDelay: 1,
-          delay: index * 0.25,
-        }}
-        className="
-          text-2xl md:text-3xl lg:text-4xl
-          font-extrabold italic
-          bg-gradient-to-r from-pink-400/60 via-purple-500/60 to-pink-500/60
-          bg-clip-text text-transparent
-          tracking-wider
-          drop-shadow-[0_0_6px_rgba(236,72,153,0.6)]
-        "
-      >
-        {word}
-      </motion.span>
+            {index < words.length - 1 && (
+              <span className="text-2xl md:text-4xl font-bold text-purple-400 drop-shadow-[0_0_6px_rgba(168,85,247,0.6)]">
+                •
+              </span>
+            )}
+          </div>
+        ))}
+      </motion.div>
 
-      {index < words.length - 1 && (
-        <span
-          className="
-            text-3xl md:text-4xl
-            font-bold
-            text-purple-400
-            drop-shadow-[0_0_6px_rgba(168,85,247,0.6)]
-          "
-        >
-          •
-        </span>
-      )}
-    </div>
-  ))}
-</motion.div>
-   
+      {/* ── cards ── */}
+      <div className="container mt-10 grid gap-8 md:grid-cols-2">
 
-      <div className="container mt-12 grid gap-8 md:grid-cols-2">
-        
-        
+        {/* System Design */}
         <motion.div
-          initial={{ opacity: 0, x: -80, rotateY: -12 }}
+          initial={{ opacity: 0, x: -60, rotateY: -10 }}
           whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
           viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 90 }}
           style={{ perspective: 1000 }}
           className="h-full"
         >
-        <Card className="gradient-card h-full flex flex-col">
-          <div className="flex items-center gap-3 text-pink-300">
-            <StarIcon className="size-5" />
-            <h3 className="text-2xl font-semibold">System Design</h3>
-          </div>
-
-          <p className="mt-12 text-white/80">
-            Learning Docker and CI/CD pipelines to strengthen deployment workflows and scalable architecture fundamentals.
-          </p>
-
-          <Image
-            src={dockerImage}
-            alt="Docker"
-            width={500}
-            height={300}
-            className="mt-6 rounded-2xl"
-          />
-          <p className="mt-auto pt-8 text-base md:text-lg text-purple-200/90 font-semibold text-center">
-            Hosting and Deploying
-          </p>
-        </Card>
+          <Card className="gradient-card h-full flex flex-col">
+            <div className="flex items-center gap-3 text-pink-300">
+              <StarIcon className="size-5" />
+              <h3 className="text-2xl font-semibold">System Design</h3>
+            </div>
+            <p className="mt-6 text-white/75">
+              Learning Docker and CI/CD pipelines to strengthen deployment workflows and scalable architecture fundamentals.
+            </p>
+            <Image
+              src={dockerImage}
+              alt="Docker"
+              width={500}
+              height={300}
+              className="mt-6 rounded-2xl"
+            />
+            <p className="mt-auto pt-6 text-base md:text-lg text-purple-200/90 font-semibold text-center">
+              Hosting and Deploying
+            </p>
+          </Card>
         </motion.div>
 
-       
+        {/* Tech Stack */}
         <motion.div
-          initial={{ opacity: 0, x: 80, rotateY: 12 }}
+          initial={{ opacity: 0, x: 60, rotateY: 10 }}
           whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
           viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 90, delay: 0.05 }}
           style={{ perspective: 1000 }}
           className="h-full"
         >
-        <Card className="gradient-card h-full flex flex-col">
-          <div className="flex items-center gap-3 text-pink-300">
-            <StarIcon className="size-5" />
-            <h3 className="text-2xl font-semibold">Tech Stack</h3>
-          </div>
-
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {toolItems.map((item) => (
-              <div
-                key={item.title}
-                className="flex flex-col items-center gap-1
-                rounded-xl px-4 py-4
-                bg-gradient-to-br from-pink-500/20 to-purple-500/20
-                hover:scale-105 transition-all"
-              >
-                <div className="text-pink-200 size-8">
-                  <TechIcon component={item.iconType} />
+          <Card className="gradient-card h-full flex flex-col">
+            <div className="flex items-center gap-3 text-pink-300">
+              <StarIcon className="size-5" />
+              <h3 className="text-2xl font-semibold">Tech Stack</h3>
+            </div>
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {toolItems.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex flex-col items-center gap-1 rounded-xl px-4 py-4 bg-gradient-to-br from-pink-500/20 to-purple-500/20 hover:scale-105 transition-all"
+                >
+                  <div className="text-pink-200 size-8">
+                    <TechIcon component={item.iconType} />
+                  </div>
+                  <span className="text-xs font-semibold text-pink-100 text-center">
+                    {item.title}
+                  </span>
                 </div>
-                <span className="text-xs font-semibold text-pink-100 text-center">
-                  {item.title}
-                </span>
-              </div>
-            ))}
-          </div>
-          <p className="mt-auto pt-8 text-center text-sm md:text-base text-white/70">
-            Always flexible to learn and adapt to new stacks quickly.
-          </p>
-        </Card>
+              ))}
+            </div>
+            <p className="mt-auto pt-6 text-center text-sm md:text-base text-white/65">
+              Always flexible to learn and adapt to new stacks quickly.
+            </p>
+          </Card>
         </motion.div>
 
-
+        {/* Beyond the Code */}
         <motion.div
-          initial={{ opacity: 0, y: 90, scale: 0.96 }}
+          initial={{ opacity: 0, y: 60, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.85, type: "spring", stiffness: 85 }}
           className="md:col-span-2"
         >
-        <Card className="gradient-card md:col-span-2">
-          <div className="flex items-center gap-3 text-pink-300">
-            <StarIcon className="size-5" />
-            <h3 className="text-2xl font-semibold">Beyond the Code
-            </h3>
-
-          </div>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            {rotatingWords.map((word, index) => (
-              <span
-                key={word}
-                className={`px-4 py-2 rounded-full font-bold text-sm transition-all ${
-                  index === currentWordIndex
-                    ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white scale-110"
-                    : "bg-white/10 text-white/50"
-                }`}
-              >
-                {word}
-              </span>
-            ))}
-            
-           
-
-            
-          </div>
-
-        </Card>
+          <Card className="gradient-card md:col-span-2">
+            <div className="flex items-center gap-3 text-pink-300">
+              <StarIcon className="size-5" />
+              <h3 className="text-2xl font-semibold">Beyond the Code</h3>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {rotatingWords.map((word, index) => (
+                <span
+                  key={word}
+                  className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 ${
+                    index === currentWordIndex
+                      ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white scale-110 shadow-lg shadow-pink-500/25"
+                      : "bg-white/[0.07] text-white/45 border border-white/[0.08]"
+                  }`}
+                >
+                  {word}
+                </span>
+              ))}
+            </div>
+          </Card>
         </motion.div>
+
       </div>
     </section>
   );
-
 };
-
-
-
