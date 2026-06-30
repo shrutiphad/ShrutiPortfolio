@@ -54,7 +54,7 @@ export const ContactSection = () => {
           className="text-center mb-10"
         >
           <p className="uppercase font-semibold tracking-[0.32em] text-[11px] md:text-sm bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent bg-clip-text drop-shadow-[0_0_10px_rgba(217,70,239,0.38)]">
-            Get In Touch
+            Get In Touch here.
           </p>
           <h2 className="
             mt-3
