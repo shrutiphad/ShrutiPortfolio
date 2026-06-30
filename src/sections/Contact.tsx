@@ -98,7 +98,7 @@ export const ContactSection = () => {
           {/* card body */}
           <div className="relative z-10 p-8 md:p-10">
             <h3 className="text-center text-xl md:text-2xl font-semibold text-white/80 mb-8">
-              Let&apos;s build something meaningful together
+              Let&apos;s build something meaningful together.
             </h3>
 
             <motion.form
