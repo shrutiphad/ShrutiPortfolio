@@ -66,7 +66,7 @@ export const ContactSection = () => {
             hover:drop-shadow-[0_0_32px_rgba(236,72,153,0.85)]
             transition-all duration-300
           ">
-            Open to meaningful conversations and collaborations
+            Open to meaningful conversations and collaborations.
           </h2>
         </motion.div>
 
