@@ -156,7 +156,7 @@ export const ContactSection = () => {
                 type="submit"
                 className="mt-2 w-full rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 px-9 py-4 font-semibold text-white shadow-lg shadow-pink-500/20 transition-all duration-300"
               >
-                Send Message
+                Just a text away!
               </motion.button>
             </motion.form>
           </div>
