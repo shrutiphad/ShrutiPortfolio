@@ -158,7 +158,7 @@ export const AboutSection = () => {
               className="mt-6 rounded-2xl"
             />
             <p className="mt-auto pt-6 text-base md:text-lg text-purple-200/90 font-semibold text-center">
-              Hosting and Deploying
+              Hosting, Deploying and Systemn Design.
             </p>
           </Card>
         </motion.div>
