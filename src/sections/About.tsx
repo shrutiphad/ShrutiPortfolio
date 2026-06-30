@@ -193,7 +193,7 @@ export const AboutSection = () => {
               ))}
             </div>
             <p className="mt-auto pt-6 text-center text-sm md:text-base text-white/65">
-              Always flexible to learn and adapt to new stacks quickly.
+              Always flexible to learn and adapt to new stacks with strong Fundamentals.
             </p>
           </Card>
         </motion.div>
