@@ -209,7 +209,7 @@ export const AboutSection = () => {
           <Card className="gradient-card md:col-span-2">
             <div className="flex items-center gap-3 text-pink-300">
               <StarIcon className="size-5" />
-              <h3 className="text-2xl font-semibold">Beyond the Code</h3>
+              <h3 className="text-2xl font-semibold">Beyond the CODE.</h3>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               {rotatingWords.map((word, index) => (
