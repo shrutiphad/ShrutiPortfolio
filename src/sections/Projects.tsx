@@ -9,14 +9,12 @@ import Image                from "next/image";
 import CheckCircleIcon      from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon     from "@/assets/icons/arrow-down.svg";
 import grainImage           from "@/assets/images/grain.jpg";
-import { motion }           from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
-/* ── button gradient colours — single source of truth ─────────── */
-const BTN_PINK   = "rgba(236,72,153,";   // pink-500
-const BTN_PURPLE = "rgba(147,51,234,";   // purple-600
+const BTN_PINK   = "rgba(236,72,153,";
+const BTN_PURPLE = "rgba(147,51,234,";
 
-/* ── project data ─────────────────────────────────────────────── */
 const portfolioProjects = [
   {
     company: "Personal Project",
@@ -30,6 +28,11 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/Uniplacement-AI",
     image: uniplacementImage,
+    glowColor: `${BTN_PINK}0.32)`,
+    accentFrom: "from-pink-500/35",
+    accentVia:  "via-purple-600/25",
+    accentTo:   "to-pink-500/25",
+    ringColor:  "ring-pink-400/35",
   },
   {
     company: "Personal Project",
@@ -43,6 +46,11 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/SleepCare-IoT",
     image: sleepcareImage,
+    glowColor: `${BTN_PURPLE}0.30)`,
+    accentFrom: "from-purple-500/35",
+    accentVia:  "via-fuchsia-600/25",
+    accentTo:   "to-purple-500/25",
+    ringColor:  "ring-purple-400/35",
   },
   {
     company: "Personal Project",
@@ -56,6 +64,11 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/Promptly",
     image: promptlyImage,
+    glowColor: `${BTN_PINK}0.28)`,
+    accentFrom: "from-fuchsia-500/35",
+    accentVia:  "via-pink-600/25",
+    accentTo:   "to-fuchsia-500/25",
+    ringColor:  "ring-fuchsia-400/35",
   },
   {
     company: "Personal Project",
@@ -69,6 +82,11 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/StayEscape",
     image: stayescapeImage,
+    glowColor: `${BTN_PINK}0.26)`,
+    accentFrom: "from-pink-400/35",
+    accentVia:  "via-rose-600/25",
+    accentTo:   "to-pink-400/25",
+    ringColor:  "ring-rose-400/35",
   },
   {
     company: "Personal Project",
@@ -82,6 +100,11 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/Investo-DashBoard",
     image: investoImage,
+    glowColor: `${BTN_PURPLE}0.30)`,
+    accentFrom: "from-violet-500/35",
+    accentVia:  "via-purple-600/25",
+    accentTo:   "to-violet-500/25",
+    ringColor:  "ring-violet-400/35",
   },
   {
     company: "Personal Project",
@@ -95,239 +118,403 @@ const portfolioProjects = [
     ],
     link: "https://github.com/shrutiphad/Real-Time-SignVision-AI",
     image: signInterpreterImage,
+    glowColor: `${BTN_PINK}0.28)`,
+    accentFrom: "from-pink-500/35",
+    accentVia:  "via-fuchsia-500/25",
+    accentTo:   "to-purple-600/25",
+    ringColor:  "ring-pink-400/35",
   },
 ];
 
-/* ── component ───────────────────────────────────────────────── */
+/* ── scroll progress bar ──────────────────────────────────────── */
+const ScrollProgressBar = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
+  return (
+    <motion.div
+      style={{ scaleX, transformOrigin: "0%" }}
+      className="fixed top-0 left-0 right-0 h-[3px] z-50
+        bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-500
+        shadow-[0_0_12px_rgba(236,72,153,0.7)]"
+    />
+  );
+};
+
+/* ── single card ─────────────────────────────────────────────── */
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: (typeof portfolioProjects)[0];
+  index: number;
+}) => {
+  const isEven  = index % 2 === 0;
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  /* subtle scroll-driven image parallax */
+  const { scrollYProgress: cardScroll } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+  });
+  const imageY = useTransform(cardScroll, [0, 1], [-14, 14]);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      /* ── ENTRANCE: big directional flip from alternating sides ── */
+      initial={{
+        opacity:  0,
+        x:        isEven ? -180 : 180,
+        rotateY:  isEven ? -28  : 28,
+        y:        60,
+        scale:    0.88,
+      }}
+      whileInView={{
+        opacity:  1,
+        x:        0,
+        rotateY:  0,
+        y:        0,
+        scale:    1,
+      }}
+      viewport={{ once: false, margin: "-90px" }}
+      transition={{
+        duration:  1.1,
+        type:      "spring",
+        stiffness: 65,
+        damping:   16,
+      }}
+      /* ── HOVER: gentle counter-tilt + lift ── */
+      whileHover={{
+        rotateY:   isEven ? 5 : -5,
+        y:         -10,
+        scale:     1.015,
+        transition: { duration: 0.4, type: "spring", stiffness: 180 },
+      }}
+      className="group relative rounded-3xl will-change-transform"
+      style={{
+        perspective: 1400,
+        boxShadow: `
+          0 0 0 1px rgba(255,255,255,0.07),
+          0 0 55px ${project.glowColor},
+          0 20px 60px rgba(0,0,0,0.45)
+        `,
+      }}
+    >
+      {/* gradient border ring — animates brighter on hover */}
+      <div
+        className={`absolute inset-0 rounded-3xl bg-gradient-to-br
+          ${project.accentFrom} ${project.accentVia} ${project.accentTo}
+          opacity-55 group-hover:opacity-100
+          transition-opacity duration-500`}
+      />
+
+      {/* glassmorphism body */}
+      <div
+        className={`relative overflow-hidden
+          bg-gradient-to-br from-[#13091f]/95 via-[#0e0618]/95 to-[#110820]/95
+          backdrop-blur-xl m-[1px] rounded-[calc(1.5rem-1px)]
+          ring-1 ${project.ringColor}`}
+      >
+        {/* grain — tiled evenly */}
+        <div
+          className="absolute inset-0 rounded-[calc(1.5rem-1px)] opacity-[0.055] pointer-events-none"
+          style={{
+            backgroundImage: `url(${grainImage.src})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "180px 180px",
+          }}
+        />
+
+        {/* top-edge highlight */}
+        <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent pointer-events-none" />
+
+        {/* inner ambient glow — side that card flips FROM */}
+        <div
+          className="absolute -top-16 w-72 h-72 rounded-full pointer-events-none
+            opacity-15 group-hover:opacity-30 transition-opacity duration-700"
+          style={{
+            [isEven ? "left" : "right"]: "-3rem",
+            background: `radial-gradient(circle, ${project.glowColor}, transparent 70%)`,
+            filter: "blur(38px)",
+          }}
+        />
+
+        <div className="relative z-10 p-7 md:p-10 lg:p-12">
+          <div
+            className={`flex flex-col gap-10 xl:gap-16 items-center ${
+              isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+            }`}
+          >
+
+            {/* ── LEFT / RIGHT: text ── */}
+            <div className="flex flex-col flex-1 min-w-0">
+
+              {/* index + meta */}
+              <motion.div
+                initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="flex items-center gap-3 mb-4"
+              >
+                <span className="font-mono text-[10px] text-white/20 select-none tabular-nums">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="h-px w-8 bg-white/10 shrink-0" />
+                <span className="bg-gradient-to-r from-pink-300 to-purple-400 font-bold uppercase tracking-widest text-[10px] text-transparent bg-clip-text">
+                  {project.company}&nbsp;&bull;&nbsp;{project.year}
+                </span>
+              </motion.div>
+
+              {/* title */}
+              <motion.h3
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.15, duration: 0.55 }}
+                className="font-serif text-2xl md:text-3xl lg:text-4xl text-white leading-tight"
+              >
+                {project.title}
+              </motion.h3>
+
+              {/* tech badges — stagger in */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.22 }}
+                className="flex flex-wrap gap-1.5 mt-4"
+              >
+                {project.tech.map((t, ti) => (
+                  <motion.span
+                    key={t}
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: false }}
+                    transition={{ delay: 0.25 + ti * 0.07 }}
+                    className="px-2.5 py-1 text-[10px] font-semibold rounded-full
+                      border border-white/[0.09] bg-white/[0.04] text-white/50
+                      backdrop-blur-sm
+                      group-hover:border-pink-500/30 group-hover:text-white/75
+                      transition-all duration-300"
+                  >
+                    {t}
+                  </motion.span>
+                ))}
+              </motion.div>
+
+              {/* divider */}
+              <div className="mt-5 h-px bg-gradient-to-r from-white/0 via-white/[0.08] to-white/0" />
+
+              {/* results — slide in from the flip side */}
+              <ul className="flex flex-col gap-3 mt-5">
+                {project.results.map((result, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: isEven ? -18 : 18 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ delay: 0.18 + idx * 0.12, duration: 0.48 }}
+                    className="flex items-start gap-2.5 text-sm text-white/50
+                      leading-relaxed hover:text-white/72 transition-colors duration-200"
+                  >
+                    <CheckCircleIcon className="size-4 shrink-0 mt-0.5 text-pink-400/65" />
+                    <span>{result.title}</span>
+                  </motion.li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <motion.a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: `0 0 30px ${project.glowColor}`,
+                }}
+                whileTap={{ scale: 0.97 }}
+                className="mt-8 self-start inline-flex items-center gap-2
+                  bg-gradient-to-r from-pink-500 to-purple-600
+                  hover:from-pink-400 hover:to-purple-500
+                  text-white font-semibold text-sm
+                  px-6 h-11 rounded-xl
+                  shadow-lg shadow-pink-500/20
+                  transition-all duration-300"
+              >
+                Explore Project
+                <ArrowUpRightIcon className="size-4 rotate-[-135deg]" />
+              </motion.a>
+            </div>
+
+            {/* ── image panel ── */}
+            <div className="relative w-full lg:w-[46%] shrink-0">
+              <motion.div
+                /* image entrance: scale + rotateX from below + fade */
+                initial={{ opacity: 0, scale: 0.82, rotateX: -20, y: 36 }}
+                whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
+                viewport={{ once: false, margin: "-80px" }}
+                transition={{
+                  duration:  0.85,
+                  delay:     0.28,
+                  type:      "spring",
+                  stiffness: 95,
+                  damping:   18,
+                }}
+                whileHover={{ scale: 1.025 }}
+                style={{ y: imageY }}
+                className="relative"
+              >
+                {/* glow halo behind image */}
+                <div
+                  className="absolute -inset-3 rounded-2xl opacity-0
+                    group-hover:opacity-65 transition-opacity duration-700
+                    blur-2xl pointer-events-none"
+                  style={{
+                    background: `linear-gradient(135deg, ${project.glowColor} 0%, rgba(147,51,234,0.55) 100%)`,
+                  }}
+                />
+
+                {/* image frame */}
+                <div className="relative rounded-2xl overflow-hidden
+                  border border-white/[0.09]
+                  group-hover:border-pink-500/28
+                  transition-colors duration-500 shadow-2xl"
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={1200}
+                    height={675}
+                    className="w-full object-cover object-top aspect-video
+                      transition-transform duration-700 ease-out
+                      group-hover:scale-[1.04]"
+                  />
+                  {/* shimmer on hover */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100
+                      transition-opacity duration-700 pointer-events-none"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 50%, rgba(255,255,255,0.04) 100%)",
+                    }}
+                  />
+                  {/* bottom vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </motion.div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+/* ── main section ────────────────────────────────────────────── */
 export const ProjectsSection = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
   if (!mounted) return null;
 
   return (
-    <section id="projects" className="pt-10 pb-18 lg:pt-16 lg:pb-24 relative overflow-hidden">
+    <>
+      <ScrollProgressBar />
 
-      {/* ── ambient section glow ── */}
-      <div
-        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full pointer-events-none -z-10"
-        style={{
-          background: `radial-gradient(ellipse, ${BTN_PINK}0.15) 0%, ${BTN_PURPLE}0.10) 50%, transparent 75%)`,
-          filter: "blur(80px)",
-        }}
-      />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-pink-500/[0.07] via-purple-600/[0.06] to-transparent pointer-events-none" />
-      <div
-        className="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `url(${grainImage.src})`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "980px 980px",
-        }}
-      />
+      <section id="projects" className="pt-10 pb-20 lg:pt-16 lg:pb-28 relative overflow-hidden">
 
-      <div className="container mx-auto px-6 lg:px-8">
+        {/* ambient blobs */}
+        <div
+          className="absolute -top-48 left-1/2 -translate-x-1/2 w-[700px] h-[500px]
+            rounded-full pointer-events-none -z-10"
+          style={{
+            background: `radial-gradient(ellipse, ${BTN_PINK}0.15) 0%, ${BTN_PURPLE}0.10) 45%, transparent 72%)`,
+            filter: "blur(72px)",
+          }}
+        />
+        <div
+          className="absolute bottom-0 right-0 w-[500px] h-[400px]
+            rounded-full pointer-events-none -z-10"
+          style={{
+            background: `radial-gradient(ellipse, ${BTN_PURPLE}0.12) 0%, transparent 70%)`,
+            filter: "blur(60px)",
+          }}
+        />
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.035] pointer-events-none"
+          style={{
+            backgroundImage: `url(${grainImage.src})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "180px 180px",
+          }}
+        />
 
-        {/* ── section header ── */}
-        <div className="text-center mb-16 lg:mb-24">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="uppercase font-semibold tracking-[0.32em] text-[11px] md:text-sm bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent bg-clip-text drop-shadow-[0_0_10px_rgba(217,70,239,0.38)]"
-          >
-            Featured Projects
-          </motion.p>
+        <div className="container mx-auto px-6 lg:px-8">
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-4xl md:text-6xl text-center mt-4 bg-gradient-to-r from-pink-100 via-fuchsia-200 to-purple-200 text-transparent bg-clip-text drop-shadow-[0_0_14px_rgba(236,72,153,0.28)]"
-          >
-            Selected Work
-          </motion.h2>
+          {/* section header */}
+          <div className="text-center mb-16 lg:mb-24">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="uppercase font-semibold tracking-[0.32em] text-[11px] md:text-sm
+                bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400
+                text-transparent bg-clip-text
+                drop-shadow-[0_0_10px_rgba(217,70,239,0.4)]"
+            >
+              Featured Projects
+            </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-sm md:text-base text-white/70 mt-4 max-w-2xl mx-auto leading-relaxed"
-          >
-            A curated set of projects across web development, AI, and real-time systems.
-          </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.1 }}
+              className="font-serif text-4xl md:text-6xl text-center mt-4
+                bg-gradient-to-r from-pink-100 via-fuchsia-200 to-purple-200
+                text-transparent bg-clip-text
+                drop-shadow-[0_0_18px_rgba(236,72,153,0.3)]"
+            >
+              Selected Work
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center text-sm md:text-base text-white/60 mt-4
+                max-w-2xl mx-auto leading-relaxed"
+            >
+              A curated set of projects across web development, AI, and real-time systems.
+            </motion.p>
+
+            {/* decorative divider */}
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35, duration: 0.7 }}
+              className="mx-auto mt-8 h-px w-48
+                bg-gradient-to-r from-transparent via-pink-400/55 to-transparent"
+            />
+          </div>
+
+          {/* cards */}
+          <div className="flex flex-col gap-10 lg:gap-14">
+            {portfolioProjects.map((project, i) => (
+              <ProjectCard key={project.title} project={project} index={i} />
+            ))}
+          </div>
+
         </div>
-
-        {/* ── project cards ── */}
-        <div className="flex flex-col gap-8 lg:gap-12">
-          {portfolioProjects.map((project, i) => {
-            const isEven = i % 2 === 0;
-
-            return (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 48, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
-                className="group relative rounded-3xl"
-                style={{
-                  /* resting shadow: soft pink-purple matching the button */
-                  boxShadow: `
-                    0 0 0 1px rgba(255,255,255,0.09),
-                    0 0 40px ${BTN_PINK}0.22),
-                    0 0 40px ${BTN_PURPLE}0.16),
-                    0 2px 12px rgba(0,0,0,0.5)
-                  `,
-                }}
-              >
-                {/* ── hover glow — button gradient sweeping in from text side ── */}
-                <div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                  style={{
-                    background: isEven
-                      ? `radial-gradient(ellipse at 20% 50%, ${BTN_PINK}0.20) 0%, ${BTN_PURPLE}0.13) 45%, transparent 70%)`
-                      : `radial-gradient(ellipse at 80% 50%, ${BTN_PINK}0.20) 0%, ${BTN_PURPLE}0.13) 45%, transparent 70%)`,
-                    filter: "blur(10px)",
-                  }}
-                />
-
-                {/* ── glass card body — near-black, zero warm tint ── */}
-                <div className="relative overflow-hidden bg-gradient-to-br from-[#13091f]/95 via-[#0e0618]/95 to-[#110820]/95 backdrop-blur-xl border border-white/[0.07] rounded-3xl group-hover:border-pink-500/25 transition-colors duration-500">
-
-                  {/* grain */}
-                  <div
-                    className="absolute inset-0 rounded-3xl opacity-[0.03] pointer-events-none"
-                    style={{
-                      backgroundImage: `url(${grainImage.src})`,
-                      backgroundRepeat: "repeat",
-                      backgroundSize: "400px 400px",
-                    }}
-                  />
-
-                  {/* top-edge highlight */}
-                  <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-
-                  <div className="relative z-10 p-7 md:p-10 lg:p-12">
-                    <div
-                      className={`flex flex-col gap-10 xl:gap-16 items-center ${
-                        isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                      }`}
-                    >
-
-                      {/* ── text content ── */}
-                      <div className="flex flex-col flex-1 min-w-0">
-
-                        {/* index + meta */}
-                        <div className="flex items-center gap-3 mb-4">
-                          <span className="font-mono text-[10px] text-white/20 select-none tabular-nums">
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
-                          <span className="h-px w-8 bg-white/10 shrink-0" />
-                          <span className="bg-gradient-to-r from-pink-300 to-purple-400 font-bold uppercase tracking-widest text-[10px] text-transparent bg-clip-text">
-                            {project.company}&nbsp;&bull;&nbsp;{project.year}
-                          </span>
-                        </div>
-
-                        {/* title */}
-                        <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
-                          {project.title}
-                        </h3>
-
-                        {/* tech badges */}
-                        <div className="flex flex-wrap gap-1.5 mt-4">
-                          {project.tech.map((t) => (
-                            <span
-                              key={t}
-                              className="px-2.5 py-1 text-[10px] font-semibold rounded-full border border-white/[0.09] bg-white/[0.04] text-white/50 backdrop-blur-sm group-hover:border-pink-500/30 group-hover:text-white/70 transition-all duration-300"
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* fade divider */}
-                        <div className="mt-5 h-px bg-gradient-to-r from-white/0 via-white/[0.08] to-white/0" />
-
-                        {/* result bullets */}
-                        <ul className="flex flex-col gap-3 mt-5">
-                          {project.results.map((result, idx) => (
-                            <motion.li
-                              key={idx}
-                              initial={{ opacity: 0, x: -10 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: 0.12 + idx * 0.09, duration: 0.42 }}
-                              className="flex items-start gap-2.5 text-sm text-white/50 leading-relaxed"
-                            >
-                              <CheckCircleIcon className="size-4 shrink-0 mt-0.5 text-pink-400/65" />
-                              <span>{result.title}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
-
-                        {/* CTA — the single source of the pink→purple gradient */}
-                        <motion.a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{
-                            scale: 1.04,
-                            boxShadow: `0 0 28px ${BTN_PINK}0.45), 0 0 28px ${BTN_PURPLE}0.35)`,
-                          }}
-                          whileTap={{ scale: 0.97 }}
-                          transition={{ type: "spring", stiffness: 320, damping: 22 }}
-                          className="mt-8 self-start inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-semibold text-sm px-6 h-11 rounded-xl shadow-lg shadow-pink-500/20 transition-all duration-300"
-                        >
-                          Explore Project
-                          <ArrowUpRightIcon className="size-4 rotate-[-135deg]" />
-                        </motion.a>
-                      </div>
-
-                      {/* ── image panel ── */}
-                      <div className="relative w-full lg:w-[46%] shrink-0">
-                        <motion.div
-                          initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                          viewport={{ once: true, margin: "-60px" }}
-                          transition={{ duration: 0.65, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                          className="relative"
-                        >
-                          {/* image glow — button gradient behind the frame */}
-                          <div
-                            className="absolute -inset-3 rounded-2xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 blur-2xl pointer-events-none"
-                            style={{
-                              background: `linear-gradient(135deg, ${BTN_PINK}0.75) 0%, ${BTN_PURPLE}0.75) 100%)`,
-                            }}
-                          />
-
-                          {/* image frame */}
-                          <div className="relative rounded-2xl overflow-hidden border border-white/[0.09] group-hover:border-pink-500/25 transition-colors duration-500 shadow-2xl">
-                            <Image
-                              src={project.image}
-                              alt={project.title}
-                              width={1200}
-                              height={750}
-                              className="w-full object-cover object-top aspect-video transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                            />
-                            {/* bottom vignette */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-                          </div>
-                        </motion.div>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
