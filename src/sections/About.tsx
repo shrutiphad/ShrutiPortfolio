@@ -22,7 +22,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import grainImage from "@/assets/images/grain.jpg";
 
-const words = ["CREATIVE", "CONFIDENT", "CONSISTENT"];
+const words = ["CREATIVE", "CONFIDENT", "COMPETENT"];
 
 const toolItems = [
   { title: "JavaScript", iconType: JavaScriptIcon },
