@@ -71,25 +71,38 @@ export const AboutSection = () => {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-purple-500/10 via-pink-500/5 to-transparent pointer-events-none" />
 
       {/* ── section header ── */}
-     <motion.p
+    
+        <div className="text-center mb-16 lg:mb-24">
+          <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="uppercase font-semibold tracking-[0.32em] text-[11px] md:text-sm bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent bg-clip-text drop-shadow-[0_0_10px_rgba(217,70,239,0.38)]"
           >
-            About Me
+           About Me
           </motion.p>
-        <motion.h2
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-serif text-4xl md:text-6xl text-center mt-4 bg-gradient-to-r from-pink-100 via-fuchsia-200 to-purple-200 text-transparent bg-clip-text drop-shadow-[0_0_14px_rgba(236,72,153,0.28)]"
           >
-            Selected Work
+            AI is my teammate, not my replacement.
           </motion.h2>
-      
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center text-sm md:text-base text-white/70 mt-4 max-w-2xl mx-auto leading-relaxed"
+          >
+            Software Engineer by passion, self-taught by choice.
+          </motion.p>
+        </div>
 
       {/* ── CREATIVE • CONFIDENT • CONSISTENT ── */}
       <motion.div
