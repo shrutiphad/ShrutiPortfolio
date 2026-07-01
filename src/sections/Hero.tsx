@@ -286,7 +286,7 @@ export const HeroSection = () => {
               <ArrowDown className="size-4" />
             </motion.a>
 
-            {/* Let's Collaborate */}
+            {/* Let's Collaborate
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05, boxShadow: '0 0 28px rgba(236,72,153,0.4)' }}
@@ -303,7 +303,7 @@ export const HeroSection = () => {
             >
               <span>🤝</span>
               <span>Let&apos;s Collaborate</span>
-            </motion.a>
+            </motion.a> */}
 
             {/* LinkedIn */}
             <motion.a

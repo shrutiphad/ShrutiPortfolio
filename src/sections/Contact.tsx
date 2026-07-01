@@ -56,18 +56,15 @@ export const ContactSection = () => {
           <p className="uppercase font-semibold tracking-[0.32em] text-[11px] md:text-sm bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400 text-transparent bg-clip-text drop-shadow-[0_0_10px_rgba(217,70,239,0.38)]">
             Get In Touch here.
           </p>
-          <h2 className="
-            mt-3
-            text-3xl md:text-4xl lg:text-5xl
-            font-extrabold italic tracking-wide
-            text-transparent bg-clip-text
-            bg-gradient-to-r from-pink-300 via-fuchsia-300 to-purple-400
-            drop-shadow-[0_0_22px_rgba(236,72,153,0.55)]
-            hover:drop-shadow-[0_0_32px_rgba(236,72,153,0.85)]
-            transition-all duration-300
-          ">
+            <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-serif text-4xl md:text-6xl text-center mt-4 bg-gradient-to-r from-pink-100 via-fuchsia-200 to-purple-200 text-transparent bg-clip-text drop-shadow-[0_0_14px_rgba(236,72,153,0.28)]"
+          >
             Open to meaningful conversations and collaborations.
-          </h2>
+          </motion.h2>
         </motion.div>
 
         {/* ── card ── */}
